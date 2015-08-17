@@ -13,10 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import cn.crap.base.BasePo;
+import cn.crap.utils.GetReqRes;
+import cn.crap.utils.MyString;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.GetReqRes;
-import cn.wegoteam.shop.util.MyString;
 
 /**
  * Staticdata entity. @author MyEclipse Persistence Tools

@@ -11,13 +11,13 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.DataUtils;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.GetReqRes;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.po.Comment;
 import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.GetReqRes;
 @ParentPackage("users")
 @Namespace("/")
 @Controller

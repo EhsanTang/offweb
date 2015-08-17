@@ -104,6 +104,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xapool.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlunit-1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.3.16.3.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/crap.jar" sourcepath="/crap"/>
 	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.generic_7.0"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

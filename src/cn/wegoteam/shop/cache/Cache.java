@@ -7,8 +7,9 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
-import cn.crap.base.DataUtils;
-import cn.crap.base.PageBean;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.GetReqRes;
+import cn.crap.utils.PageBean;
 import cn.wegoteam.shop.inter.HotwordServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.inter.SettingServiceInter;
@@ -18,7 +19,6 @@ import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.Setting;
 import cn.wegoteam.shop.po.Staticdata;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.GetReqRes;
 
 public class Cache {
 	private static long lastUpdatedTime = 0;

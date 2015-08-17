@@ -14,7 +14,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.PageBean;
+import cn.crap.utils.PageBean;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.po.Comment;

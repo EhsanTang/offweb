@@ -11,17 +11,15 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.DataUtils;
+import cn.crap.utils.AuthImg;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.GetReqRes;
+import cn.crap.utils.ZfmBase64;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.enu.FlagType5;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
-import cn.wegoteam.shop.util.AuthImg;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.GetReqRes;
-import cn.wegoteam.shop.util.MyString;
-import cn.wegoteam.shop.util.PostAndGetRequset;
-import cn.wegoteam.shop.util.ZfmBase64;
 
 /**
  * default 表示没有添加拦截器 user 表示只有用户登录才能访问

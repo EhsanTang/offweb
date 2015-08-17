@@ -7,12 +7,12 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.DataUtils;
-import cn.crap.base.PageBean;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.MD5;
+import cn.crap.utils.PageBean;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
-import cn.wegoteam.shop.util.MD5;
 
 @ParentPackage("manage")
 @Namespace("/")

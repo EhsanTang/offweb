@@ -6,7 +6,7 @@
  <uri>/WEB-INF/pagetag</uri>
  <tag>
   <name>pageTag</name>
-  <tag-class>cn.wegoteam.shop.util.PageTag</tag-class>
+  <tag-class>cn.crap.utils.PageTag</tag-class>
   <body-content>empty</body-content>
   <attribute>
    <name>path</name>
@@ -26,7 +26,7 @@
    <name>page</name>
    <required>true</required>
    <rtexprvalue>true</rtexprvalue>
-   <type>cn.wegoteam.shop.util.PageBean</type>
+   <type>cn.crap.utils.PageBean</type>
   </attribute>
   <attribute>
    <name>paramMap</name>

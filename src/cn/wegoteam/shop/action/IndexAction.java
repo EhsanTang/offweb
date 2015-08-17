@@ -2,9 +2,6 @@ package cn.wegoteam.shop.action;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -15,6 +12,9 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import cn.crap.email.Email;
+import cn.crap.utils.GetReqRes;
+import cn.crap.utils.MyString;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.inter.HotwordServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
@@ -23,10 +23,6 @@ import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.Hotword;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.Email;
-import cn.wegoteam.shop.util.GetReqRes;
-import cn.wegoteam.shop.util.MyString;
-import cn.wegoteam.shop.util.Tools;
 
 @Controller
 @ParentPackage("default")

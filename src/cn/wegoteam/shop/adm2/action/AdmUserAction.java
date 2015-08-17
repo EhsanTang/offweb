@@ -7,13 +7,13 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.BaseAction;
-import cn.crap.base.DataUtils;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.MD5;
+import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.MD5;
 
 
 /**

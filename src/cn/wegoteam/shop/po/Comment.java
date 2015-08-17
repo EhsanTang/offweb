@@ -19,9 +19,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.Where;
+
 import cn.crap.base.BasePo;
-import cn.wegoteam.shop.util.DateFormartUtil;
+import cn.crap.utils.DateFormartUtil;
 
 /**
  * Comment entity. @author MyEclipse Persistence Tools
