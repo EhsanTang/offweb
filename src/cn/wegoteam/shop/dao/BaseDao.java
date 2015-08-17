@@ -9,12 +9,10 @@ import javax.annotation.Resource;
 
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
-import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import cn.wegoteam.shop.inter.BaseDaoInter;
 import cn.wegoteam.shop.po.BasePo;
-import cn.wegoteam.shop.util.Const;
 import cn.wegoteam.shop.util.DataUtils;
 import cn.wegoteam.shop.util.MyString;
 import cn.wegoteam.shop.util.PageBean;
@@ -41,10 +39,10 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	 * @see com.wegoteam.shop.dao.BaseDao#sava(java.lang.Object)
 	 */
 	@Override
-	public String save(T model) {
+	public boolean save(T model) {
 		// 用当前的sessionFactory工厂获取当前的线程
 		hibernateTemplate.save(model);
-		return Const.RETURNSUCCESS;
+		return true;
 	}
 
 	/*
@@ -53,9 +51,9 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	 * @see com.wegoteam.shop.dao.BaseDao#update(java.lang.Object)
 	 */
 	@Override
-	public String update(T model) {
+	public boolean update(T model) {
 		hibernateTemplate.update(model);
-		return Const.RETURNSUCCESS;
+		return true;
 	}
 
 	/*
@@ -64,9 +62,9 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	 * @see com.wegoteam.shop.dao.BaseDao#saveOrUpdate(java.lang.Object)
 	 */
 	@Override
-	public String saveOrUpdate(T model) {
+	public boolean saveOrUpdate(T model) {
 		hibernateTemplate.saveOrUpdate(model);
-		return Const.RETURNSUCCESS;
+		return true;
 	}
 
 	/*
@@ -75,13 +73,13 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	 * @see com.wegoteam.shop.dao.BaseDao#delete(java.lang.Object)
 	 */
 	@Override
-	public String delete(Integer id) {
+	public boolean delete(Integer id) {
 		int result = executeByHql("update " + clazz.getName()
 				+ " set flag=-100 where id=" + id, null);
 		if (result > 0)
-			return Const.RETURNSUCCESS;
+			return true;
 		else
-			return Const.RETURNERROR;
+			return false;
 	}
 
 	/*
@@ -92,12 +90,23 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public T get(Integer id) {
+	public T get(Integer id,Integer flag) {
 		T t = (T) hibernateTemplate.get(clazz, id);
-		if (t != null && t.getFlag() != -100)
-			return t;
+		if (t != null){
+			if(flag == null && t.getFlag() != -100){
+				return t;
+			}else if(flag != null && t.getFlag().equals(flag)){
+				return t;
+			}else{
+				return null;
+			}
+		}
 		else
 			return null;
+	}
+	@Override
+	public T get(Integer id) {
+		return get(id,null);
 	}
 
 	/*
@@ -118,19 +127,21 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	@Override
 	public List<T> findByHql(String hql, Map<String, Object> map,
 			PageBean pageBean, String order) {
-		hql = filter(hql);
+		hql = filter(hql, map);
 		hql += (MyString.isEmpty(order) ? "" : " order by " + order);
-		System.out.println(hql);
-		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hql);
-		setPage(query,pageBean);
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession()
+				.createQuery(hql);
+		setPage(query, pageBean);
 		setQuery(map, query);
 		return query.list();
 	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public T findUniqueByHql(String hql, Map<String, Object> map) {
-		hql = filter(hql);
-		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hql);
+		hql = filter(hql, map);
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession()
+				.createQuery(hql);
 		setQuery(map, query);
 		return (T) query.uniqueResult();
 	}
@@ -140,10 +151,11 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	@Override
 	public List<T> findBySql(String sql, Map<String, Object> map,
 			PageBean pageBean, String order) {
-		sql = filter(sql);
+		sql = filter(sql, map);
 		sql += (MyString.isEmpty(order) ? "" : " order by " + order);
-		SQLQuery query = hibernateTemplate.getSessionFactory().getCurrentSession().createSQLQuery(sql);
-		setPage(query,pageBean);
+		SQLQuery query = hibernateTemplate.getSessionFactory()
+				.getCurrentSession().createSQLQuery(sql);
+		setPage(query, pageBean);
 		setQuery(map, query);
 		return query.list();
 	}
@@ -151,7 +163,7 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object[]> findObjsBySql(String sql, Map<String, Object> map) {
-		sql = filter(sql);
+		sql = filter(sql, map);
 		SQLQuery query = this.hibernateTemplate.getSessionFactory()
 				.getCurrentSession().createSQLQuery(sql);
 		setQuery(map, query);
@@ -166,18 +178,21 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 		return getCount(DataUtils.getHql(map), map);
 	}
 
+	
 	@Override
 	public int getCount(String conditions, Map<String, Object> map) {
-		String hql = "select count(*) from " + clazz.getName() + conditions
-				+ " and flag!=-100";
-		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hql);
+		String hql = "select count(*) from " + clazz.getName() + conditions;
+		hql = filter(hql, map);
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession()
+				.createQuery(hql);
 		setQuery(map, query);
 		return Integer.parseInt(query.uniqueResult().toString());
 	}
 
+	
 	@Override
 	public int getCountBySql(String sql, Map<String, Object> map) {
-		sql = filter(sql);
+		sql = filter(sql, map);
 		SQLQuery query = this.hibernateTemplate.getSessionFactory()
 				.getCurrentSession().createSQLQuery(sql);
 		setQuery(map, query);
@@ -188,25 +203,27 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 
 	@Override
 	public int executeByHql(String hql, Map<String, Object> map) {
-		hql = filter(hql);
+		hql = filter(hql, map);
 		// 根据一个hql语句创建一个Query对象
-		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().createQuery(hql);
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession()
+				.createQuery(hql);
 		setQuery(map, query);
 		return query.executeUpdate();
 	}
 
 	@Override
 	public int executeBySql(String sql, Map<String, Object> map) {
-		sql = filter(sql);
+		sql = filter(sql, map);
 		SQLQuery query = this.hibernateTemplate.getSessionFactory()
 				.getCurrentSession().createSQLQuery(sql);
 		if (map != null)
 			setQuery(map, query);
 		return query.executeUpdate();
 	}
-	//根据map设置参数
+
+	// 根据map设置参数
 	private void setQuery(Map<String, Object> map, Query query) {
-		if(map == null)
+		if (map == null)
 			return;
 		for (Entry<String, Object> entry : map.entrySet()) {
 			String key = entry.getKey();
@@ -215,21 +232,27 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 			}
 			Object value = entry.getValue();
 			key = key.replaceAll("\\.", "_");
-				if (value instanceof Integer) {
-					query.setInteger(key, Integer.parseInt(value.toString()));
-				} else if (value instanceof String) {
-					query.setString(key, value.toString());
-				} else {
-					query.setParameter(key, value);
-				}
+			if (value instanceof Integer) {
+				query.setInteger(key, Integer.parseInt(value.toString()));
+			} else if (value instanceof String) {
+				query.setString(key, value.toString());
+			} else {
+				query.setParameter(key, value);
+			}
 		}
 	}
-	//设置系统过滤
-	private static String filter(String str) {
-		String order="";
-		if(str.toUpperCase().indexOf(" ORDER ") > 0){
-			order = str.substring(str.toUpperCase().indexOf(" ORDER "), str.length());
-			str = str.substring(0,str.toUpperCase().indexOf(" ORDER "));
+
+	// 设置系统过滤
+	private static String filter(String str, Map<String, Object> map) {
+		//查询条件包括flag=，则不添加flag过滤，如：flag=-1，flag>依然会添加flag
+		if(map!=null && map.get("flag") != null && !map.get("flag").toString().equals("")){
+			return str;
+		}
+		String order = "";
+		if (str.toUpperCase().indexOf(" ORDER ") > 0) {
+			order = str.substring(str.toUpperCase().indexOf(" ORDER "),
+					str.length());
+			str = str.substring(0, str.toUpperCase().indexOf(" ORDER "));
 		}
 		if (str.toUpperCase().indexOf(" WHERE ") > 0)
 			str += " and flag!=-100 " + order;
@@ -237,8 +260,9 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 			str += " where flag!=-100 " + order;
 		return str;
 	}
-	//设置分页
-	private void setPage(Query query,PageBean pageBean){
+
+	// 设置分页
+	private void setPage(Query query, PageBean pageBean) {
 		if (pageBean != null) {
 			query.setFirstResult(pageBean.countOffSet()).setMaxResults(
 					pageBean.getSize());

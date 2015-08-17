@@ -1,5 +1,4 @@
 package cn.wegoteam.shop.inter;
-
 import java.util.List;
 import java.util.Map;
 
@@ -8,37 +7,41 @@ import javax.servlet.http.HttpServletRequest;
 import cn.wegoteam.shop.util.PageBean;
 
 public interface BaseServiceInter<T> {
-	 //ä¿å­˜ä¸€ä¸ªå®ä½“å¦‚æœä¿å­˜æˆåŠŸçš„è¿”å›ä¸€ä¸ªæ ‡å¿—
-	   public String save(T model);
-	   public String update(T model);
-	   public String saveOrUpdate(T model);
+	 //±£´æÒ»¸öÊµÌåÈç¹û±£´æ³É¹¦µÄ·µ»ØÒ»¸ö±êÖ¾
+	   public boolean save(T model);
+	   public boolean update(T model);
+	   public boolean saveOrUpdate(T model);
 	   public T get(Integer id);
 	   public T get(T model);
 	   public T load(Integer id);
 	   public T load(T model);
-	  //åˆ é™¤ä¸€ä¸ªå®ä½“
-	   public String delete(T model);
-	   public String delete(Integer id);
+	  //É¾³ıÒ»¸öÊµÌå
+	   public boolean delete(T model);
+	   public boolean delete(Integer id);
 	  
-	   //æ ¹æ®hqlè¯­å¥æŸ¥è¯¢å‡ºä¸€ä¸ªé›†åˆ
+	   //¸ù¾İhqlÓï¾ä²éÑ¯³öÒ»¸ö¼¯ºÏ
 	   public List<T> findByHql(String hql);
 	   public List<T> findByHql(String hql,Map<String,Object> map);
-	   public List<T> findByHql(String hql, Map<String,Object> map, PageBean pageBean);//åˆ†é¡µæŸ¥è¯¢å‡ºä¸€ç»„å®ä½“
+	   public List<T> findByHql(String hql, Map<String,Object> map, PageBean pageBean);//·ÖÒ³²éÑ¯³öÒ»×éÊµÌå
 	   public List<T> findByHql(String hql, Map<String, Object> map, PageBean pageBean,String order);
-	   public List<T> findBySql(String sql,Map<String,Object> map);//æ‰§è¡Œsqlè¯­å¥è¿›è¡ŒæŸ¥è¯¢
-	   public List<Object[]> findObjsBySql(String sql,Map<String,Object> map); //æŸ¥è¯¢å®ä½“ç±»ä¸­çš„æŸäº›å±æ€§
-	   public String getJsonList(PageBean pageBean,Map<String,Object> map,String order);//è¿”å›ä¸€ä¸ªæ»¡è¶³ä¸€å®šæ’åºæ¡ä»¶çš„jsonå­—ç¬¦ä¸²
+	   public List<T> findBySql(String sql,Map<String,Object> map);//Ö´ĞĞsqlÓï¾ä½øĞĞ²éÑ¯
+	   public List<Object[]> findObjsBySql(String sql,Map<String,Object> map); //²éÑ¯ÊµÌåÀàÖĞµÄÄ³Ğ©ÊôĞÔ
+	   public String getJsonList(PageBean pageBean,Map<String,Object> map,String order);//·µ»ØÒ»¸öÂú×ãÒ»¶¨ÅÅĞòÌõ¼şµÄjson×Ö·û´®
 	   public String getJsonList(PageBean pageBean, Map<String, Object> map,String order, HttpServletRequest requset);
 	   public List<T> getList(PageBean pageBean, Map<String, Object> map);
 	   public List<T> getList(PageBean pageBean, Map<String, Object> map, String order);
 	   public T findUniqueByHql(String hql, Map<String, Object> map);
-	   //æŸ¥å‡ºæ€»çš„è®°å½•æ•°
+	   //²é³ö×ÜµÄ¼ÇÂ¼Êı
 	   public int getCount(Map<String, Object> map);
-	   public int getCountBySql(String sql,Map<String,Object> map);//æ‰§è¡Œsqlè¯­å¥æŸ¥æ‰¾æ€»è®°å½•æ•°
+	   public int getCountBySql(String sql,Map<String,Object> map);//Ö´ĞĞsqlÓï¾ä²éÕÒ×Ü¼ÇÂ¼Êı
 	   public int getCount(String conditions, Map<String, Object> map);
 	   
 	   public int executeByHql(String hql,Map<String,Object> map);
-	   public int executeBySql(String sql,Map<String,Object> map);//åŸç”Ÿçš„å¯æ‰§è¡Œçš„sqlè¯­å¥
+	   public int executeBySql(String sql,Map<String,Object> map);//Ô­ÉúµÄ¿ÉÖ´ĞĞµÄsqlÓï¾ä
+	String getJsonList(PageBean pageBean, Map<String, Object> map,
+			String order, HttpServletRequest requset,
+			Map<String, Object> otherParams);
+	T get(Integer id, Integer flag);
 	   
 	
 	

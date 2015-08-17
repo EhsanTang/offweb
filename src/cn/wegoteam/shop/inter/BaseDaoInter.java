@@ -2,36 +2,38 @@ package cn.wegoteam.shop.inter;
 
 import java.util.List;
 import java.util.Map;
+
 import cn.wegoteam.shop.util.PageBean;
 
+
 public interface BaseDaoInter<T> {
-   //ä¿å­˜ä¸€ä¸ªå®ä½“å¦‚æœä¿å­˜æˆåŠŸçš„è¿”å›ä¸€ä¸ªæ ‡å¿—
-   public String save(T model);
-   public String update(T model);
-   public String saveOrUpdate(T model);
+   //±£´æÒ»¸öÊµÌåÈç¹û±£´æ³É¹¦µÄ·µ»ØÒ»¸ö±êÖ¾
+   public boolean save(T model);
+   public boolean update(T model);
+   public boolean saveOrUpdate(T model);
    public T get(Integer id);
    public T load(Integer id);
    
-   //åˆ é™¤ä¸€ä¸ªå®ä½“
-   public String delete(Integer id);
+   //É¾³ıÒ»¸öÊµÌå
+   public boolean delete(Integer id);
    /**
-    * hqlè¯­å¥è¿›è¡Œçš„æ“ä½œ
+    * hqlÓï¾ä½øĞĞµÄ²Ù×÷
     * 
     **/
    
-   //æ ¹æ®hqlè¯­å¥æŸ¥è¯¢å‡ºä¸€ä¸ªé›†åˆ
+   //¸ù¾İhqlÓï¾ä²éÑ¯³öÒ»¸ö¼¯ºÏ
    public List<T> findByHql(String hql, Map<String, Object> map, PageBean pageBean,String order);
    public List<T> findBySql(String sql, Map<String, Object> map, PageBean pageBean,String order);
-   public List<Object[]> findObjsBySql(String sql,Map<String,Object> map);//æŸ¥è¯¢å®ä½“ç±»ä¸­çš„æŸäº›å±æ€§
+   public List<Object[]> findObjsBySql(String sql,Map<String,Object> map);//²éÑ¯ÊµÌåÀàÖĞµÄÄ³Ğ©ÊôĞÔ
    public T findUniqueByHql(String hql, Map<String, Object> map);
-   //æŸ¥å‡ºæ€»çš„è®°å½•æ•°
+   //²é³ö×ÜµÄ¼ÇÂ¼Êı
    public int getCount(Map<String, Object> map);
    public int getCount(String conditions, Map<String, Object> map);
-   public int getCountBySql(String sql,Map<String,Object> map);//åŸç”ŸsqlæŸ¥å‡ºæ€»çš„è®°å½•æ•°
+   public int getCountBySql(String sql,Map<String,Object> map);//Ô­Éúsql²é³ö×ÜµÄ¼ÇÂ¼Êı
    
- //æ‰§è¡Œçš„hqlè¯­å¥
+ //Ö´ĞĞµÄhqlÓï¾ä
    public int executeByHql(String hql,Map<String,Object> map);
-   //åŸç”Ÿçš„å¯æ‰§è¡Œçš„sqlè¯­å¥
+   //Ô­ÉúµÄ¿ÉÖ´ĞĞµÄsqlÓï¾ä
    public int executeBySql(String sql,Map<String,Object> map);
-
+T get(Integer id, Integer flag);
 }
