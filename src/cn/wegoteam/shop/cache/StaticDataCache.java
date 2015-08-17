@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.Staticdata;
-import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.DataUtils;
 import cn.wegoteam.shop.util.GetReqRes;
 
 

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import cn.crap.base.BaseServiceInter;
 import cn.wegoteam.shop.po.User;
 
 public interface UserServiceInter extends BaseServiceInter<User> {

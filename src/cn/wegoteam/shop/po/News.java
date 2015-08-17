@@ -10,9 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
+import cn.crap.base.BasePo;
 import cn.wegoteam.shop.enu.NewsType;
-import cn.wegoteam.shop.enu.YesOrNo;
 import cn.wegoteam.shop.util.GetReqRes;
 import cn.wegoteam.shop.util.MyString;
 
@@ -24,7 +23,6 @@ import cn.wegoteam.shop.util.MyString;
 public class News extends BasePo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 7226448984101362495L;
-	private Integer id;// 新闻id
 	private String cntitle;// 新闻标题
 	private String entitle;//英文名称
 	private String cncontent;// 新闻内容
@@ -33,7 +31,6 @@ public class News extends BasePo implements java.io.Serializable {
 	private Integer click;// 新闻点击量
 	private String imgUrl;// 新闻图片
 	private NewsType type;// 新闻类型
-	private Integer flag;// 新闻标志位
 	private boolean canComment;//是否可以评论
 	//联系我们等
 	private String tag;
@@ -44,21 +41,9 @@ public class News extends BasePo implements java.io.Serializable {
 	public News() {
 	}
 	public News(Integer id) {
-		this.id=id;
+		super.id=id;
 	}
 
-	
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	@Column(name = "cntitle", nullable = false, length = 100)
 	public String getCntitle() {
@@ -139,15 +124,6 @@ public class News extends BasePo implements java.io.Serializable {
 		this.type = type;
 	}
 	
-
-	@Column(name = "flag", nullable = false)
-	public Integer getFlag() {
-		return this.flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
 	@Column(name = "canComment")
 	@org.hibernate.annotations.Type(type="yes_no")
 	public boolean isCanComment() {

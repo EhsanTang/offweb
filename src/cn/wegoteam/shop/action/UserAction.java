@@ -11,13 +11,13 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.enu.FlagType5;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.AuthImg;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.DataUtils;
 import cn.wegoteam.shop.util.GetReqRes;
 import cn.wegoteam.shop.util.MyString;
 import cn.wegoteam.shop.util.PostAndGetRequset;
@@ -182,9 +182,9 @@ public class UserAction extends BaseAction<User> {
 
 	@Action(value = "resetPass")
 	public String resetPass() {
-		if (!isLegal(model.getPassword())) {
-			return ERROR;
-		}
+//		if (!isLegal(model.getPassword())) {
+//			return ERROR;
+//		}
 		User u = new User();
 		u.setId(model.getId());
 		u.setPassword(model.getPassword());

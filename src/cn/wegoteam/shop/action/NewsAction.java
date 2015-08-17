@@ -10,13 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import cn.wegoteam.shop.cache.Cache;
-import cn.wegoteam.shop.enu.FlagType3;
 import cn.wegoteam.shop.enu.NewsType;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.po.Comment;
 import cn.wegoteam.shop.po.News;
-import cn.wegoteam.shop.util.DataUtils;
 import cn.wegoteam.shop.util.Const;
 import cn.wegoteam.shop.util.GetReqRes;
 

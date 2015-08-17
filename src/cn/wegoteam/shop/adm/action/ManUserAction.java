@@ -7,12 +7,12 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.base.DataUtils;
+import cn.crap.base.PageBean;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
-import cn.wegoteam.shop.util.DataUtils;
 import cn.wegoteam.shop.util.MD5;
-import cn.wegoteam.shop.util.PageBean;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -48,11 +48,11 @@ public class ManUserAction extends BaseAction<User> {
 			//修改一个用户
 			userService.updateBySql(model);
 		}
-		return OPTRESULTSUCCESS;
+		return SUCCESS;
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.printStackTrace();
-		return OPTRESULTERROR;
+		return ERROR;
 	}
   }
   //添加或者修改一个用户对象
@@ -67,6 +67,6 @@ public class ManUserAction extends BaseAction<User> {
   @Action(value="manageDeleteUser")
   public void manageDeleteUser(){
 	  model=userService.get(model.getId());
-	  writeStringToResponse(userService.delete(model));
+	  writeStringToResponse(userService.delete(model)+"");
   }
 }

@@ -1,10 +1,8 @@
-package cn.wegoteam.shop.inter;
+package cn.crap.base;
+
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
-import cn.wegoteam.shop.util.PageBean;
 
 public interface BaseServiceInter<T> {
 	 //保存一个实体如果保存成功的返回一个标志

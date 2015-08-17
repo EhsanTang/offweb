@@ -1,4 +1,4 @@
-package cn.wegoteam.shop.dao;
+package cn.crap.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -6,16 +6,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.annotation.Resource;
+import javax.persistence.Transient;
 
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-
-import cn.wegoteam.shop.inter.BaseDaoInter;
-import cn.wegoteam.shop.po.BasePo;
-import cn.wegoteam.shop.util.DataUtils;
-import cn.wegoteam.shop.util.MyString;
-import cn.wegoteam.shop.util.PageBean;
 
 public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	@Resource
@@ -125,6 +120,7 @@ public abstract class BaseDao<T extends BasePo> implements BaseDaoInter<T> {
 	/********************* 查询数据集合 ***********************/
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transient
 	public List<T> findByHql(String hql, Map<String, Object> map,
 			PageBean pageBean, String order) {
 		hql = filter(hql, map);

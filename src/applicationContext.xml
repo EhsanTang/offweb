@@ -13,6 +13,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<!-- 使用注解 支持 -->
 	<context:annotation-config />
+	<context:component-scan base-package="cn.crap.base"/>
 	<context:component-scan base-package="cn.wegoteam.shop.service"/>
 	<context:component-scan base-package="cn.wegoteam.shop.dao"/>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -64,26 +65,5 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<!-- <tx:annotation-driven transaction-manager="txManager"/> -->
-	<!-- 配置事物通知 配置事物的传播性和隔离性 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<!-- 对数据的读操作 -->
-			<tx:method name="save*" propagation="SUPPORTS" isolation="DEFAULT" />
-			<tx:method name="update*" propagation="SUPPORTS" isolation="DEFAULT" />
-			<tx:method name="delete*" propagation="SUPPORTS" isolation="DEFAULT" />
-			<tx:method name="batch*" propagation="SUPPORTS" isolation="DEFAULT" />
-			<!-- 对数据的写操作 -->
-			<tx:method name="load*" propagation="SUPPORTS" isolation="DEFAULT"
-				read-only="true" />
-			<tx:method name="get*" propagation="SUPPORTS" isolation="DEFAULT"
-				read-only="true" />
-			<tx:method name="*" propagation="SUPPORTS" isolation="DEFAULT" />
-		</tx:attributes>
-	</tx:advice>
-	<!-- aop配置 -->
-	<aop:config>
-		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution(* cn.wegoteam.shop.service.*.*(..))" />
-	</aop:config>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

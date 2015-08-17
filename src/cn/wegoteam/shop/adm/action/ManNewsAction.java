@@ -7,10 +7,10 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.po.News;
-import cn.wegoteam.shop.util.DataUtils;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -52,11 +52,11 @@ public class ManNewsAction extends BaseAction<News>{
 	@Action(value = "manageAddNews")
 	public String addNews(){
 			newsService.saveOrUpdate(model);
-			return OPTRESULTSUCCESS;
+			return SUCCESS;
 	}
 	@Action(value = "manageDeleteNews")
 	public void deleteNews(){
-			 writeStringToResponse(newsService.delete(model));
+			 writeStringToResponse(newsService.delete(model)+"");
 	}
 	
 	

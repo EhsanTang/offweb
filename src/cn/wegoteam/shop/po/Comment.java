@@ -19,10 +19,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.Where;
-
-import cn.wegoteam.shop.util.DataUtils;
+import cn.crap.base.BasePo;
 import cn.wegoteam.shop.util.DateFormartUtil;
 
 /**
@@ -33,15 +31,11 @@ import cn.wegoteam.shop.util.DateFormartUtil;
 public class Comment extends BasePo implements java.io.Serializable {
 
 	// Fields
-
-	private Integer id;
 	private Comment comment;
-	
 	private User user;
 	private News news;
 	private Timestamp insertTime;
 	private String content;
-	private Integer flag;
 	private Set<Comment> comments = new HashSet<Comment>(0);
 	private Integer praise;//评论赞的数量
 	
@@ -51,18 +45,6 @@ public class Comment extends BasePo implements java.io.Serializable {
     	return DateFormartUtil.getDateByFormat(this.insertTime.toString(),"yyyy年MM月dd日 HH:mm");
     }
 
-
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "pid")
@@ -91,14 +73,6 @@ public class Comment extends BasePo implements java.io.Serializable {
 		this.content = content;
 	}
     
-	@Column(name = "flag",insertable=false,nullable=false)
-	public Integer getFlag() {
-		return this.flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "comment")
 	@Where(clause="flag!=-100")
