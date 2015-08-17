@@ -16,12 +16,13 @@ import cn.crap.base.BasePo;
  */
 @Entity
 @Table(name = "setting", catalog = "offweb")
-public class Setting  extends BasePo implements java.io.Serializable {
-	
+public class Setting extends BasePo implements java.io.Serializable {
+
 	private static final long serialVersionUID = 2706209907123981665L;
 	private String key;// 设置的key值
 	private String value;// 设置的value值
 	private String remark;// 设置备注
+	private String verify;
 
 	@Column(name = "skey", length = 32)
 	public String getKey() {
@@ -48,5 +49,14 @@ public class Setting  extends BasePo implements java.io.Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	@Column(name = "verify", length = 200)
+	public String getVerify() {
+		return this.verify;
+	}
+
+	public void setVerify(String verify) {
+		this.verify = verify;
 	}
 }
