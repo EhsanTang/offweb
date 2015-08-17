@@ -7,11 +7,11 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.inter.SettingServiceInter;
 import cn.wegoteam.shop.po.Setting;
-import cn.wegoteam.shop.util.DataUtils;
 @ParentPackage("manage")
 @Namespace("/")
 @Controller
@@ -43,11 +43,11 @@ public class ManSettingAction extends BaseAction<Setting>{
 	public String addSetting(){
 			settingService.saveOrUpdate(model);
 			Cache.setSetting(model);
-			return OPTRESULTSUCCESS;
+			return SUCCESS;
 	}
 	@Action(value = "manageDeleteSetting")
 	public void deleteSetting(){
-		writeStringToResponse(settingService.delete(model));
+		writeStringToResponse(settingService.delete(model)+"");
 	}
 	
 	

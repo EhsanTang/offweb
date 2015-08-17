@@ -6,12 +6,13 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.Staticdata;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.DataUtils;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -57,20 +58,14 @@ public class ManStaticAction extends BaseAction<Staticdata>{
 			model.setType(model.getType().trim());
 			staticdataService.saveOrUpdate(model);
 			StaticDataCache.setStaticdata(model);
-			return OPTRESULTSUCCESS;
+			return SUCCESS;
 	}
 
 	@Action(value = "manageDeleteStaticdata")
 	public void deleteStaticdata() {
 		model = staticdataService.get(model.getId());
 		map.put("pcode", model.getCode());
-		String result = staticdataService.delete(model);
-		if(result.equals(Const.RETURNSUCCESS)){
-			StaticDataCache.removeStaticdata(model);
-			writeStringToResponse(Const.RETURNSUCCESS);
-		}else
-			writeStringToResponse("删除失败，请先删除所有子元素");
-			//子元素添加了外键，故删除子元素之前不能删除父元素
+		
 	}
 
 	/****************************************************** get() and set() ***********************************/

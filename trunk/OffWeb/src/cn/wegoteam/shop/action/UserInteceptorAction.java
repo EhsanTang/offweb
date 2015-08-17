@@ -47,14 +47,10 @@ public class UserInteceptorAction extends BaseAction<User> {
 	// 执行用户修改密码操作
 	@Action(value = "doModifyPass", results = { @Result(name = SUCCESS, type = "chain", location = "personCenter") })
 	public String doModifyPass() {
-		if (!isLegal(model.getPassword())) {
-			return ERROR;
-		} else {
 			User user = new User();
 			user.setId(getSessionUser().getId());
 			user.setPassword(model.getPassword());
 			userService.updateBySql(user);
-		}
 		request.setAttribute("p_action", "personInfo");
 		return SUCCESS;
 	}

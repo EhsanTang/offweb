@@ -14,11 +14,11 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.base.PageBean;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.po.Comment;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.PageBean;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -68,7 +68,7 @@ public class ManCommentAction extends BaseAction<Comment> {
 			map.put("id",model.getId());
 			commentService.executeByHql("update Comment set content=:content where id=:id", map);
 		}
-		return OPTRESULTSUCCESS;
+		return SUCCESS;
 	}
 	/**
 	 * 根据id查询一个评论
@@ -90,6 +90,6 @@ public class ManCommentAction extends BaseAction<Comment> {
 	@Action(value = "manageDeleteComment")
 	public void manageDeleteComment() {
        model=commentService.get(model.getId());
-       writeStringToResponse(commentService.delete(model));
+       writeStringToResponse(commentService.delete(model)+"");
 	}
 }

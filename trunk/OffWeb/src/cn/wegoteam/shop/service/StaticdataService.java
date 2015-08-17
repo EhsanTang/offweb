@@ -4,7 +4,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import cn.wegoteam.shop.inter.BaseDaoInter;
+import cn.crap.base.BaseDaoInter;
+import cn.crap.base.BaseService;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.Staticdata;
 

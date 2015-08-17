@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import cn.crap.base.DataUtils;
+import cn.crap.base.PageBean;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.HotwordServiceInter;
@@ -16,8 +19,6 @@ import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.Setting;
 import cn.wegoteam.shop.po.Staticdata;
-import cn.wegoteam.shop.util.DataUtils;
-import cn.wegoteam.shop.util.PageBean;
 
 public class ContextListener implements ServletContextListener {
 	private WebApplicationContext springContext;

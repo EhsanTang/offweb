@@ -1,4 +1,4 @@
-package cn.wegoteam.shop.util;
+package cn.crap.base;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,11 +9,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/*
- */
 public class DataUtils {
 	/*
-	 *鏌ヨ涓簄ull鐨勫瓧娈碉紝鍒欎娇鐢╛NULL浠ｆ浛,绌虹敤_BLANK浠ｆ浛
+	 *查询为null的字段，则使用_NULL代替,空用_BLANK代替
 	 */
 	public static String getHql(Map<String, Object> map) {
 		StringBuffer hql = new StringBuffer();
@@ -46,14 +44,11 @@ public class DataUtils {
 					removes.add(key);
 				} 
 				else if (keys[1].equals("like")) {
-					String[] values = value.toString().split(",");
-					for (String val : values) {
-						if (!MyString.isEmpty(val))
-							hql.append(keys[0] + " like '%" + val + ",%' and ");
-					}
+					if (!MyString.isEmpty(value.toString()))
+						hql.append(keys[0] + " like '%" + value.toString() + "%' and ");
 					removes.add(key);
 				}else{
-					hql.append(keys[0] + keys[1]+":" + keys[0].replaceAll("\\.", "_") + " and ");//鏇挎崲. 锛屽崰浣嶇鍖呭惈.鏃朵細鎶ラ敊
+					hql.append(keys[0] +" "+ keys[1]+":" + keys[0].replaceAll("\\.", "_") + " and ");//替换. ，占位符包含.时会报错
 				}
 			}
 			else
@@ -104,7 +99,7 @@ public class DataUtils {
 //	}
 
 	/*
-	 * 鑾峰彇褰撳墠绯荤粺鏃堕棿鐨勬绉掓暟
+	 * 获取当前系统时间的毫秒数
 	 */
 	public final static String currentTime() {
 		Calendar calendar = Calendar.getInstance();

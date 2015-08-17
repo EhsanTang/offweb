@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Transient;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import cn.crap.base.BasePo;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.util.Const;
 import cn.wegoteam.shop.util.GetReqRes;
@@ -29,7 +31,6 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2469432855815594938L;
-	private Integer id;
 	private String code;// 编号
 	private String pcode;// 父编号 表中添加了外键，指向
 	private String value;// 值
@@ -37,21 +38,9 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 	private String enName;
 	private String description;// 备注
 	private String link;// 链接
-	private Integer flag;// 标志位，
 	private Integer order;// 是否排序
 	private String type;//类型，多个static拥有 不同的fcode，但是可能属于同一类
 	
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	@Column(name = "code", length = 15,nullable = false)
 	public String getCode() {
 		return this.code;
@@ -124,14 +113,6 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 		this.link = link;
 	}
 
-	@Column(name = "flag", insertable = false, nullable = false)
-	public Integer getFlag() {
-		return this.flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
 
 	@Column(name = "order_list")
 	public Integer getOrder() {

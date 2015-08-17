@@ -125,15 +125,15 @@ public class IndexAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
-	@Action(value = "slide", results = {
-			@Result(name = "1", location = SLIDE + "slide_1.jsp"),
-			@Result(name = "2", location = SLIDE + "slide_2.jsp"),
-			@Result(name = "3", location = SLIDE + "slide_3.jsp") })
-	public String slide() {
-		request.setAttribute("height", getParameter("height", 500));
-		request.setAttribute("width", getParameter("width", 600));
-		if (!Tools.JudgeIsMoblie())
-			request.setAttribute("orientation", "orientation: 'vertical',");
-		return getParameter("num", "1");
-	}
+//	@Action(value = "slide", results = {
+//			@Result(name = "1", location = SLIDE + "slide_1.jsp"),
+//			@Result(name = "2", location = SLIDE + "slide_2.jsp"),
+//			@Result(name = "3", location = SLIDE + "slide_3.jsp") })
+//	public String slide() {
+//		request.setAttribute("height", getParameter("height", 500));
+//		request.setAttribute("width", getParameter("width", 600));
+//		if (!Tools.JudgeIsMoblie())
+//			request.setAttribute("orientation", "orientation: 'vertical',");
+//		return getParameter("num", "1");
+//	}
 }

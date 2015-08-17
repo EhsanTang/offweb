@@ -6,10 +6,11 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import cn.crap.base.DataUtils;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.HotwordServiceInter;
 import cn.wegoteam.shop.po.Hotword;
-import cn.wegoteam.shop.util.DataUtils;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -48,11 +49,11 @@ public class ManHotwordAction  extends BaseAction<Hotword>{
 	@Action(value = "manageAddHotword")
 	public String addHotword(){
 			hotwordService.saveOrUpdate(model);
-			return OPTRESULTSUCCESS;
+			return SUCCESS;
 	}
 	@Action(value = "manageDeleteHotword")
 	public void deleteHotword(){
-		writeStringToResponse(hotwordService.delete(model));
+		writeStringToResponse(hotwordService.delete(model)+"");
 	}
 	
 	

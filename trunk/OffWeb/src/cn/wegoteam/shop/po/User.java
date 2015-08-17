@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import cn.crap.base.BasePo;
 import cn.wegoteam.shop.enu.SexType;
 import cn.wegoteam.shop.enu.UserType;
 
@@ -34,7 +35,6 @@ public class User  extends BasePo implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8368928923466188494L;
-	private Integer id; // 用户id
 	private String name; // 用户姓名
 	private SexType sex; // 用户性别
 	private String email; // 用户邮箱
@@ -44,7 +44,6 @@ public class User  extends BasePo implements java.io.Serializable {
 	private Integer bounds; // 用户积分
 	private Integer grade; // 用户等级
 	private Timestamp insertTime; // 记录插入时间
-	private Integer flag; // 标识位
 	private UserType type;//用户类型
 	private String authority;//权限
 	private String role;//角色
@@ -62,16 +61,6 @@ public class User  extends BasePo implements java.io.Serializable {
 	public String getFormatStrTime(){
     	return this.insertTime.toString().substring(0,this.insertTime.toString().lastIndexOf(" ")).trim();
     }
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	@Column(name = "name", length = 32)
 	public String getName() {
@@ -162,15 +151,6 @@ public class User  extends BasePo implements java.io.Serializable {
 		this.insertTime = insertTime;
 	}
 
-	@Column(name = "flag",nullable = true,insertable=false)
-	public Integer getFlag() {
-		return this.flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
-	
 	@Column(name = "authority", length = 200)
 	public String getAuthority() {
 		return authority;
