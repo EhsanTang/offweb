@@ -6,7 +6,6 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import cn.crap.utils.DataUtils;
 import cn.crap.utils.MD5;
 import cn.wegoteam.shop.action.BaseAction;
@@ -14,7 +13,6 @@ import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.Const;
-
 
 /**
  * 
@@ -60,10 +58,10 @@ public class AdmUserAction extends BaseAction<User> {
 				}
 				userService.updateBySql(model);
 			}
-			writeStringToResponse(Const.OK+"操作成功");
+			writeStringToResponse(Const.OK + "操作成功");
 		} catch (Exception e) {
 			e.printStackTrace();
-			writeStringToResponse(Const.ERROR+ e.getMessage());
+			writeStringToResponse(Const.ERROR + e.getMessage());
 		}
 	}
 
@@ -81,6 +79,7 @@ public class AdmUserAction extends BaseAction<User> {
 	@Action(value = "admDeleteUser")
 	public void manageDeleteUser() {
 		model = userService.get(model.getId());
-		writeStringToResponse(userService.delete(model)?Const.OK:Const.ERROR+"删除失败");
+		writeStringToResponse(userService.delete(model) ? Const.OK
+				: Const.ERROR + "删除失败");
 	}
 }

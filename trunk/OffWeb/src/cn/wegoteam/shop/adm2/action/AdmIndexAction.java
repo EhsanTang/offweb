@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import cn.crap.base.BaseAction;
+import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.NewsServiceInter;

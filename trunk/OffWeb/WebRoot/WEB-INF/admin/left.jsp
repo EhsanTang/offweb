@@ -30,7 +30,7 @@
 					<div id="${code}" class="panel-collapse collapse <s:if test="#st.first">in</s:if>">
 						<s:iterator value="@cn.wegoteam.shop.cache.StaticDataCache@getStaticdatas(code,'NO')">
 							<div class="panel-body n-border p0">
-								<a class="menu-a" ${link} target="main">${name}</a>
+								<a class="menu-a" ${value} target="main">${name}</a>
 							</div>
 						</s:iterator>
 				 	</div>

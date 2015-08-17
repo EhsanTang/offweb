@@ -7,8 +7,8 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import cn.crap.base.BaseAction;
 import cn.crap.utils.DataUtils;
+import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
 import cn.wegoteam.shop.po.Staticdata;
@@ -36,7 +36,7 @@ public class AdmStaticAction extends BaseAction<Staticdata> {
 				request, paramMap));
 	}
 
-	@Action(value = "admFindStaticdataById", results = { @Result(name = SUCCESS, location = MANAGE
+	@Action(value = "admFindStaticdataById", results = { @Result(name = SUCCESS, location = ADMIN
 			+ "addStaticdata.jsp") })
 	public String findStaticdataById() {
 		if (model.getId() != null)
