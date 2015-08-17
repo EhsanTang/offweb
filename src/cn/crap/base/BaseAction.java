@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
@@ -16,6 +15,8 @@ import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+import cn.wegoteam.shop.cache.StaticDataCache;
+import cn.wegoteam.shop.po.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
@@ -35,17 +36,17 @@ public abstract class BaseAction<T> extends ActionSupport implements
 	protected final static String NEWS = "/WEB-INF/web/news/";
 	protected final static String SUBPAGES = "/WEB-INF/subPages/";
 	protected final static String MANAGE = "/WEB-INF/manage/";
-	/***************************admin*************************************/
+	/*************************** admin *************************************/
 	protected final static String ADMIN = "/WEB-INF/admin/";
-	/***************************End:admin*********************************/
+	/*************************** End:admin *********************************/
 	protected String tipMessage;
 	protected String pageTitle = "亿通世界";
 	protected String pageMessage = "欢迎进入亿通世界";
 	protected String pageName;
-	//action查询条件
+	// action查询条件
 	protected Map<String, Object> map = new HashMap<String, Object>();
 	protected PageBean pageBean = new PageBean(defaultSize);
-	//struts2标签分页参数,新版后台json返回参数
+	// struts2标签分页参数,新版后台json返回参数
 	protected Map<String, Object> paramMap = new HashMap<String, Object>();
 	protected Logger log;
 	protected Class<?> clazz;
@@ -62,7 +63,7 @@ public abstract class BaseAction<T> extends ActionSupport implements
 			log = Logger.getLogger(clazz);
 			operators = "<button class=\"l-button\" style='float:right;' onclick=\"addNewRow('"
 					+ getClazz() + "')\">添加" + getClazz() + "</button>";
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -71,14 +72,19 @@ public abstract class BaseAction<T> extends ActionSupport implements
 	/**
 	 * 初始化后台加载数据
 	 */
-	public void initAdminList(String parentCode, String currentCode, String operators,Object parentPageStatic,Object currentPageStatic ){
-		paramMap.put(Const.ParentPage, parentPageStatic);
-		paramMap.put(Const.CurrentPage, currentPageStatic);
+	public void initAdminList(String parentCode, String currentCode,
+			String operators) {
+		paramMap.put(Const.ParentPage,
+				StaticDataCache.getStaticdata(parentCode));
+		paramMap.put(Const.CurrentPage,
+				StaticDataCache.getStaticdata(currentCode));
 		paramMap.put("clazz", getClazz());
-		paramMap.put(Const.SortName,getParameter(Const.SortName,"id"));
-		paramMap.put(Const.SortOrder,getParameter(Const.SortOrder,"desc").equals("desc") ? Const.ImgSortDesc:Const.ImgSortAsc);
+		paramMap.put(Const.SortName, getParameter(Const.SortName, "id"));
+		paramMap.put(Const.SortOrder, getParameter(Const.SortOrder, "desc")
+				.equals("desc") ? Const.ImgSortDesc : Const.ImgSortAsc);
 		paramMap.put("operators", operators);
 	}
+
 	// 重写getParameter方法
 	public String getParameter(String arg, String defaultValue) {
 		String temp = request.getParameter(arg);
@@ -93,10 +99,11 @@ public abstract class BaseAction<T> extends ActionSupport implements
 		return getParameter(arg, "");
 	}
 
-	public String getSession(String key){
+	public String getSession(String key) {
 		Object o = session.get(key);
-		return o == null? "":o.toString();
+		return o == null ? "" : o.toString();
 	}
+
 	public int getParameter(String arg, int defaultValue) {
 		String temp = request.getParameter(arg);
 		if (temp == null)
@@ -110,6 +117,7 @@ public abstract class BaseAction<T> extends ActionSupport implements
 			}
 		}
 	}
+
 	// 将url中的参数强制装换为integer对象
 	public int getIntParameter(String str) {
 		try {
@@ -124,6 +132,12 @@ public abstract class BaseAction<T> extends ActionSupport implements
 		}
 
 	}
+
+	// 获取session对象
+	public User getSessionUser() {
+		return (User) session.get(Const.SESS_USER);
+	}
+
 	// 向前台返回json格式的数据
 	public void writeStringToResponse(String content) {
 		try {
@@ -138,10 +152,11 @@ public abstract class BaseAction<T> extends ActionSupport implements
 			e.printStackTrace();
 		}
 	}
+
 	public void writeJasonToResponse(List<?> list) {
 		JsonConfig config = new JsonConfig();
-		config.setExcludes(new String[] { "addTime"});// 除去dept属性
-		JSONArray json = JSONArray.fromObject(list,config);
+		config.setExcludes(new String[] { "addTime" });// 除去dept属性
+		JSONArray json = JSONArray.fromObject(list, config);
 		try {
 			response.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
@@ -152,6 +167,7 @@ public abstract class BaseAction<T> extends ActionSupport implements
 			e.printStackTrace();
 		}
 	}
+
 	public void initPage(String pageName, String pageMessage) {
 		request.setAttribute("pageName", pageName);
 		request.setAttribute("pageMessage", pageMessage);
@@ -171,12 +187,12 @@ public abstract class BaseAction<T> extends ActionSupport implements
 		request.setAttribute("returnName", returnName);
 	}
 
-//	public static boolean isLegal(String str) {
-//		if (str == null)
-//			return false;
-//		return str
-//				.matches("[0-9|a-z|A-Z|_|#|@|\\s|.|:|,|+|-|-|*|/|\u2E80-\u9FFF]*");
-//	}
+	// public static boolean isLegal(String str) {
+	// if (str == null)
+	// return false;
+	// return str
+	// .matches("[0-9|a-z|A-Z|_|#|@|\\s|.|:|,|+|-|-|*|/|\u2E80-\u9FFF]*");
+	// }
 
 	public void prepare() {
 	};
