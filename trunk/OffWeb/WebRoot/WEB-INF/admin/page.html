@@ -1,0 +1,17 @@
+﻿<nav>
+		<ul class="pagination fr mt0">
+			<li><a ng-click="pageTurn(1)" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage-1)" ng-if="list.Page.currentPage>1">上一页</a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage-2)" ng-if="list.Page.currentPage>2">{{list.Page.currentPage*1-2}}</a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage-1)" ng-if="list.Page.currentPage>1">{{list.Page.currentPage*1-1}}</a></li>
+			<li class="active"><a>{{list.Page.currentPage}}</a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage+1)" ng-if="list.Page.currentPage<list.Page.totalPage">{{list.Page.currentPage*1+1}}</a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage+2)" ng-if="list.Page.currentPage+1<list.Page.totalPage">{{list.Page.currentPage*1+2}}</a></li>
+			<li><a ng-click="pageTurn(list.Page.currentPage+1)" ng-if="list.Page.currentPage<list.Page.totalPage">下一页</a></li>
+			<li><a ng-click="pageTurn(list.Page.totalPage)" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+		</ul>
+	</nav>
+	<input type="hidden" id="PageTotalPage" value="{{list.Page.totalPage}}"/>
+	<input type="hidden" id="PageAllRow" value="{{list.Page.allRow}}"/>
+	<div class="fr C999 mt5 mr10">Total:{{list.Page.allRow}}&nbsp; {{list.Page.currentPage}}/{{list.Page.totalPage}}</div>
+	

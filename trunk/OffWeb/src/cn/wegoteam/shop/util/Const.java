@@ -1,5 +1,7 @@
 package cn.wegoteam.shop.util;
 
+import cn.wegoteam.shop.util.Const;
+
 public class Const {
     public static final String USER_NAME="userName";
     public static final String USER_PWD="userPassword";
@@ -7,12 +9,19 @@ public class Const {
     public static final String SECURITY_CODE="securityCode";
     public static final String FALSE="false";
     public static final String TRUE="true";
+    public static final String OK = "[OK]";
+	public static final String ERROR = "[ERROR]";
 	public static final String RETURNSUCCESS="success";
 	public static final String RETURNERROR="error";
 	public static final String COMMENT_PRAISE="comment_praise";
-	
 	//flag
 	public static final int UNUSERABLE = -1;
+	//Image
+	public static final String ImgSortDesc = "&#xe617;";
+	public static final String ImgSortAsc = "&#xe616;";
+	public static final String ImgCard ="&#xe637;";
+	public static final String ImgExport="&#xe64b;";
+	public static final String ImgSearch = "&#xe600;";
 	//setting
 	public static final String ALIYUNOSSURL="ALIYUNOSSURL";
 	public static final String LUCENEURL="LUCENEURL";
@@ -22,6 +31,12 @@ public class Const {
 	public static final String FREEOFLOGISTICS="FREEOFLOGISTICS";//免运费最低金额
 	public static final String JIFEN="JIFEN";
 	public static final String SUPERADINID="SUPERADINID";//最高管理员ID
+	public final static String ADMIN_STATIC="ADMIN_STATIC";//StaticData
+	public final static String STATIC_LIST="STATIC_LIST";//分类列表
+	public final static String STATIC_ALL="STATIC_ALL";//所有数据
+	public final static String ADMIN_USER="ADMIN_USER"; //公司管理员
+	public final static String USER_ADMIN="USER_ADMIN";//管理员
+	public final static String USER_COMMON="USER_COMMON";//普通管理员
 	//session
 	public static final String SESS_RANDOM_IMG = "randomImageStr";
 	public static final String SESS_USER = "session_user";
@@ -49,5 +64,14 @@ public class Const {
 	
 	//application
 	public static final String APP_1F="APP_1F";
+	
+	//新版后台控件
+		public static final String ADM_ADD_NEW = "&nbsp;<button type=\"button\" class=\"btn btn-success btn-xs\" onclick=\"open('admFind%sById','','添加%s')\">"
+				+ "<i class=\"iconfont f11\">&#xe625;&nbsp;</i>添加</button>";
+		public static final String ADM_OPEN_PAGE = "&nbsp;<button type=\"button\" class=\"btn %s btn-xs\" onclick=\"open('adminJsp?jspName=%s','','%s')\">"
+				+ "<i class=\"iconfont f11\">%s&nbsp;</i>%s</button>";
+		public static final String ADM_INPUT = "&nbsp;<input type=\"text\" class=\"form-control input-sm searchInput %s\" id=\"%s\" name=\"%s\" ltype=\"date\"/ placeholder=\"%s\">";
+		public static final String ADM_SEARCH = "&nbsp;<button type=\"button\" class=\"btn btn-primary btn-xs\" onclick=\"search(%s)\">"
+				+ "<i class=\"iconfont f11\">"+Const.ImgSearch+"&nbsp;</i>搜索</button>";
     
 }
