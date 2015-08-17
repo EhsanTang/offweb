@@ -1,16 +1,18 @@
 package cn.wegoteam.shop.action;
 
 import javax.annotation.Resource;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.stereotype.Controller;
+
+import cn.crap.utils.MD5;
 import cn.wegoteam.shop.enu.SexType;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.MD5;
 
 @ParentPackage("users")
 @Namespace("/")

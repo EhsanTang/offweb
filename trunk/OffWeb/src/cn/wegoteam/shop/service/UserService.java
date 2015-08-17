@@ -14,22 +14,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.crap.base.BaseDaoInter;
 import cn.crap.base.BaseService;
-import cn.crap.base.DataUtils;
+import cn.crap.email.Email;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.MD5;
+import cn.crap.utils.MyString;
+import cn.crap.utils.Tools;
+import cn.crap.utils.ZfmBase64;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.enu.FlagType5;
 import cn.wegoteam.shop.enu.UserType;
 import cn.wegoteam.shop.inter.UserDaoInter;
 import cn.wegoteam.shop.inter.UserServiceInter;
 import cn.wegoteam.shop.po.User;
-import cn.wegoteam.shop.util.Aes;
-import cn.wegoteam.shop.util.AuthImg;
 import cn.wegoteam.shop.util.Const;
-import cn.wegoteam.shop.util.Email;
-import cn.wegoteam.shop.util.MD5;
-import cn.wegoteam.shop.util.MyString;
-import cn.wegoteam.shop.util.PostAndGetRequset;
-import cn.wegoteam.shop.util.Tools;
-import cn.wegoteam.shop.util.ZfmBase64;
 
 @Service
 public class UserService extends BaseService<User> implements UserServiceInter {
@@ -163,7 +160,7 @@ public class UserService extends BaseService<User> implements UserServiceInter {
 		if (params.equals("ONLY")) {
 			us = userDao.findByHql("from User where email=:email",
 					DataUtils.getMap("email", email), null, null);
-			if (!Tools.isValid(us)) {
+			if (us!=null&&us.size()>0) {
 				if (Email.sendEmail(email, "倍力康商城的验证码", content)) {
 					return "[OK]";
 				} else {
@@ -307,7 +304,7 @@ public class UserService extends BaseService<User> implements UserServiceInter {
 		if (Tools.isEmail(model.getEmail())) {
 			List<User> us = getList(null,
 					DataUtils.getMap("email", model.getEmail()));
-			if (!Tools.isValid(us)) {
+			if (us!=null&&us.size()>0) {
 				return "[OK]";
 			}
 		}
@@ -318,7 +315,7 @@ public class UserService extends BaseService<User> implements UserServiceInter {
 		if (isLegal(model.getPhone())) {
 			List<User> us = getList(null,
 					DataUtils.getMap("phone", model.getPhone()));
-			if (!Tools.isValid(us)) {
+			if (us!=null&&us.size()>0) {
 				return "[OK]";
 			}
 		}

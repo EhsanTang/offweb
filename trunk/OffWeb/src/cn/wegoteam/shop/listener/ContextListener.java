@@ -8,8 +8,8 @@ import javax.servlet.ServletContextListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import cn.crap.base.DataUtils;
-import cn.crap.base.PageBean;
+import cn.crap.utils.DataUtils;
+import cn.crap.utils.PageBean;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.HotwordServiceInter;

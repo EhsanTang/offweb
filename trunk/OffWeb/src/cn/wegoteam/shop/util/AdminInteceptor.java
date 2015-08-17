@@ -4,8 +4,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 
+import cn.crap.utils.MyString;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.enu.UserType;

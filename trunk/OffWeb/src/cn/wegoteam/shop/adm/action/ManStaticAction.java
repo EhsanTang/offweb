@@ -6,7 +6,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import cn.crap.base.DataUtils;
+import cn.crap.utils.DataUtils;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;

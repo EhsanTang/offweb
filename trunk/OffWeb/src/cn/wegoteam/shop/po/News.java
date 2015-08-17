@@ -10,10 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 import cn.crap.base.BasePo;
+import cn.crap.utils.GetReqRes;
+import cn.crap.utils.MyString;
 import cn.wegoteam.shop.enu.NewsType;
-import cn.wegoteam.shop.util.GetReqRes;
-import cn.wegoteam.shop.util.MyString;
 
 /**
  * News entity. @author MyEclipse Persistence Tools

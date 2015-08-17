@@ -12,7 +12,7 @@
 								<div class="slide-img item<s:if test="#slide.first"> active</s:if>">
 									<a href="${link}" target="_blank"><img alt="First slide" style="background-size:auto;" src="${value}" /></a>
 									<s:if test="!lang.equals('NO')">
-										<div class="index-slide-text r2 a">
+										<div class="index-slide-text r2 a visible-lg-block">
 											<a href="${link}" target="_blank">${lang}</a>
 										</div> 
 									</s:if>
