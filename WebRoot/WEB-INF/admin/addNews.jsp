@@ -23,7 +23,15 @@
 				type="text" value="${model.type}"
 				onclick="loadPick(event,360,240,'true','type','STATICDATA','','${model.type}','&p_code=NEWSTYPE&p_type=NO');" />
 			</td>
-
+		</tr>
+		<tr>
+			<td>评论:</td>
+			<td>是否可以评论：<input class="form-control" type="radio"
+				name="canComment" <s:if test="model.canComment">checked</s:if>
+				value="true">是 <input class="form-control" type="radio"
+				name="canComment" <s:if test="!model.canComment">checked</s:if>
+				value="false">否
+			</td>
 		</tr>
 		<tr>
 			<td>标签（联系我们、帮助...）:</td>
@@ -39,7 +47,7 @@
 		<tr>
 			<td>标识:</td>
 			<td><s:select name="flag"
-					list="@cn.yitongworld.enu.FlagType@values()" listKey="name"
+					list="@cn.wegoteam.shop.enu.FlagType3@values()" listKey="name"
 					cssClass="form-control" listValue="name()" value="model.flag" /></td>
 		</tr>
 		<tr>
@@ -47,10 +55,11 @@
 			<td><input name="imgUrl" type="text" class="form-control"
 				value="<s:property value="model.imgUrl" escape="true"/>" /></td>
 		</tr>
-
 		<tr>
-			<td>新闻内容(中/英文):</td>
-			<td></td>
+			<td>发布日期:</td>
+			<td><input class="form-control" name="date"
+				value="${model.date}" type="text" id="txtDate" ltype="date"
+				validate="{required:true}" /></td>
 		</tr>
 	</table>
 	<div>
