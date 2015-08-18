@@ -26,13 +26,7 @@ public abstract class BaseAction<T> extends cn.crap.base.BaseAction<T>{
 	/**
 	 * 初始化后台加载数据
 	 */
-	public void initAdminList(String parentCode, String currentCode, String operators){
-		paramMap.put(Const.ParentPage, StaticDataCache.getStaticdata(parentCode));
-		paramMap.put(Const.CurrentPage,StaticDataCache.getStaticdata(currentCode));
-		paramMap.put("clazz", getClazz());
-		paramMap.put(Const.SortName,getParameter(Const.SortName,"id"));
-		paramMap.put(Const.SortOrder,getParameter(Const.SortOrder,"desc").equals("desc") ? Const.ImgSortDesc:Const.ImgSortAsc);
-		paramMap.put("operators", operators);
+	public void initAdminList(String parentPage, String currentPage, String operators){
+		 super.initAdminList(operators, StaticDataCache.getStaticdata(parentPage), StaticDataCache.getStaticdata(currentPage));
 	}
-
 }
