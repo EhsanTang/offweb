@@ -14,6 +14,10 @@ public class Const {
 	public static final String RETURNSUCCESS="success";
 	public static final String RETURNERROR="error";
 	public static final String COMMENT_PRAISE="comment_praise";
+	public static final String ParentPage = "ParentPage";
+	public static final String CurrentPage = "CurrentPage";
+	public static final String SortName = "sortname";
+	public static final String SortOrder = "sortorder";
 	//flag
 	public static final int UNUSERABLE = -1;
 	//Image
@@ -37,9 +41,9 @@ public class Const {
 	public final static String ADMIN_SETTING = "ADMIN_SETTING";//系统设置
 	public final static String SETTING_LIST = "SETTING_LIST";//系统参数
 	public final static String ADMIN_NEWS="ADMIN_NEWS";//新闻资讯管理
-	public final static String NEWS_LIST3="NEWS_LIST3";//建议留言
-	public final static String NEWS_LIST2="NEWS_LIST2";//新闻管理
-	public final static String NEWS_LIST="NEWS_LIST";//页面管理
+	public final static String NEWS_TOP="NEWS_TOP";//顶置
+	public final static String NEWS_PAGE="NEWS_PAGE";//页面网站
+	public final static String NEWS_INFOR="NEWS_INFOR";//新闻资讯
 	public final static String ADMIN_USER="ADMIN_USER"; //公司管理员
 	public final static String USER_ADMIN="USER_ADMIN";//管理员
 	public final static String USER_COMMON="USER_COMMON";//普通管理员
