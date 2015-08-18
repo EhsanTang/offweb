@@ -26,16 +26,16 @@ public class AdmNewsAction extends BaseAction<News> {
 	@Action(value = "admLoadNewsList")
 	public void loadNewsList() {
 		operators = String.format(Const.ADM_ADD_NEW, getClazz(), getClazz());
-		if (getParameter("p_type").equals("SUGGEST")) {
-			initAdminList(Const.ADMIN_NEWS, Const.NEWS_LIST3, operators);
+		if (getParameter("flag").equals("100")) {
+			initAdminList(Const.ADMIN_NEWS, Const.NEWS_TOP, operators);
 		} else if (getParameter("p_type").equals("PAGE")) {
-			initAdminList(Const.ADMIN_NEWS, Const.NEWS_LIST2, operators);
+			initAdminList(Const.ADMIN_NEWS, Const.NEWS_PAGE, operators);
 		} else if (getParameter("p_type").equals("INFOR")) {
-			initAdminList(Const.ADMIN_NEWS, Const.NEWS_LIST, operators);
+			initAdminList(Const.ADMIN_NEWS, Const.NEWS_INFOR, operators);
 		}
 		writeStringToResponse(newsService.getJsonList(pageBean, DataUtils
 				.getMap("type", getParameter("p_type"), "flag",
-						getParameter("p_flag")), null, request, paramMap));
+						getParameter("flag")), null, request, paramMap));
 
 	}
 

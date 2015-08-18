@@ -12,7 +12,6 @@
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'code')">Code</th>
 				<th class="tc">名称</th>
 				<th class="tc">英文名称</th>
-				<th class="tc">标识名称</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'value')">值</th>
 				<th class="tc">排序</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'addTime')">添加时间</th>
@@ -27,7 +26,6 @@
 			<td class="tc">{{item.code}}</td>
 			<td class="tc">{{item.name}}</td>
 			<td class="tc">{{item.enName}}</td>
-			<td class="tc">{{item.flagName}}</td>
 			<td class="tc">{{item.value}}</td>
 			<td class="tc">{{item.order}}</td>
 			<td class="tc">{{item.showAddTime}}</td>
