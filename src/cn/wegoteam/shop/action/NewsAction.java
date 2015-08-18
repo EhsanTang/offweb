@@ -9,6 +9,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import cn.crap.utils.DataUtils;
 import cn.crap.utils.GetReqRes;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.enu.NewsType;
@@ -30,19 +31,16 @@ public class NewsAction extends BaseAction<News> {
 	private CommentServiceInter commentService;
 	private List<Comment> commentLists;
 
-	@Action(value = "newsList", results = { @Result(name = "success", location = NEWS
-			+ "list.jsp") })
-	public String newsList() {
+	@Action(value = "newsList")
+	public void newsList() {
 		pageBean.setSize(10);
 		map.put("type", getParameter("p_type", NewsType.INFOR.name()));
 		map.put("flag|>", 0);
-		models = newsService.getList(pageBean, map, "flag desc");
-		return SUCCESS;
+		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap));
 	}
 
-	@Action(value = "newsDetail", results = { @Result(name = "success", location = NEWS
-			+ "detail.jsp") })
-	public String newsDetail() {
+	@Action(value = "newsDetail")
+	public void newsDetail() {
 		if (model.getId() == null) {
 			model = Cache.getNews(getParameter("p_tag", ""));
 			if (model == null) {
@@ -62,16 +60,17 @@ public class NewsAction extends BaseAction<News> {
 		map.put("id", model.getId());
 		newsService.executeByHql("update News set click=click+1 where id=:id",
 				map);
-		pageBean.setSize(3);
-		paramMap.put("newsId", model.getId()+"");
-		map.clear();
-		map.put("news.id", model.getId());
-		map.put("comment.id|"+Const.NULL,Const.NULL);
-		if(model.isCanComment()){
-			commentLists= commentService.getList(pageBean, map, "insertTime desc");
-			request.setAttribute("commentPraise", GetReqRes.getCookie(Const.COMMENT_PRAISE));
-		}
-		return SUCCESS;
+		writeJasonToResponse(model,null);
+		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap));
+//		pageBean.setSize(3);
+//		paramMap.put("newsId", model.getId()+"");
+//		map.clear();
+//		map.put("news.id", model.getId());
+//		map.put("comment.id|"+Const.NULL,Const.NULL);
+//		if(model.isCanComment()){
+//			commentLists= commentService.getList(pageBean, map, "insertTime desc");
+//			request.setAttribute("commentPraise", GetReqRes.getCookie(Const.COMMENT_PRAISE));
+//		}
 	}
 	/**************************************/
 	public List<Comment> getCommentLists() {

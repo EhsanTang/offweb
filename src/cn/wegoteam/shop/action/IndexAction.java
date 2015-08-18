@@ -2,6 +2,8 @@ package cn.wegoteam.shop.action;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -40,6 +42,27 @@ public class IndexAction extends BaseAction<User> {
 	private NewsServiceInter newsService;
 	@Autowired
 	HotwordServiceInter hotwordService;
+	private String p;
+	
+	// 跳转到JSP页面
+		@Action(value = "go", results = { @Result(name = "success", location = WEB
+				+ "${p}.jsp") })
+		public String go() {
+			StringBuilder sb = new StringBuilder();
+			if (request.getParameterMap() != null) {
+				Iterator<Entry<String, String[]>> iter = request.getParameterMap()
+						.entrySet().iterator();
+				while (iter.hasNext()) {
+					Entry<String, String[]> entry = iter.next();
+					for (String param : entry.getValue()) {
+						sb.append("&" + entry.getKey() + "=" + param);
+					}
+				}
+			}
+			request.setAttribute("params", sb.toString());
+			return SUCCESS;
+		}
+		
 	// 调转到主页action
 	@Action(value = "index", results = { @Result(name = "success", location = WEB
 			+ "index.jsp") })
@@ -121,15 +144,13 @@ public class IndexAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
-//	@Action(value = "slide", results = {
-//			@Result(name = "1", location = SLIDE + "slide_1.jsp"),
-//			@Result(name = "2", location = SLIDE + "slide_2.jsp"),
-//			@Result(name = "3", location = SLIDE + "slide_3.jsp") })
-//	public String slide() {
-//		request.setAttribute("height", getParameter("height", 500));
-//		request.setAttribute("width", getParameter("width", 600));
-//		if (!Tools.JudgeIsMoblie())
-//			request.setAttribute("orientation", "orientation: 'vertical',");
-//		return getParameter("num", "1");
-//	}
+	public String getP() {
+		String str = p.replace(".", "\\");
+		return str;
+	}
+
+	public void setP(String p) {
+		this.p = p;
+	}
+
 }

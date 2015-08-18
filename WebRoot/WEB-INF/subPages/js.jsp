@@ -5,3 +5,5 @@
 <script src="js/core.js"></script>
 <script src="js/global.js"></script>
 <script src="js/monitor.js"></script>
+<script src="admin/angular.js?${JSCSS}"></script>
+<script src="admin/myAngular.js?${JSCSS}"></script>
