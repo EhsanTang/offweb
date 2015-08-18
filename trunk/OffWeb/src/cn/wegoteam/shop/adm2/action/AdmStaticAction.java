@@ -25,11 +25,8 @@ public class AdmStaticAction extends BaseAction<Staticdata> {
 	@Action(value = "admLoadStaticdataList")
 	public void loadStaticdataList() {
 		operators = String.format(Const.ADM_ADD_NEW, getClazz(), getClazz());
-		initAdminList(
-				Const.ADMIN_STATIC,
-				getParameter("p_code", "TOP").equals("ALL") ? StaticDataCache
-						.getStaticdata(Const.STATIC_ALL) : StaticDataCache
-						.getStaticdata(Const.STATIC_LIST), operators);
+		initAdminList(Const.ADMIN_STATIC,
+				getParameter("p_code", "TOP").equals("ALL") ? Const.STATIC_ALL: Const.STATIC_LIST, operators);
 		writeStringToResponse(staticdataService.getJsonList(
 				pageBean,
 				getParameter("p_code", "TOP").equals("ALL") ? null : DataUtils
