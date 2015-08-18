@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletContext;
-
 import cn.crap.utils.DataUtils;
 import cn.crap.utils.GetReqRes;
 import cn.crap.utils.PageBean;
@@ -18,7 +16,6 @@ import cn.wegoteam.shop.po.Hotword;
 import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.Setting;
 import cn.wegoteam.shop.po.Staticdata;
-import cn.wegoteam.shop.util.Const;
 
 public class Cache {
 	private static long lastUpdatedTime = 0;
@@ -63,18 +60,8 @@ public class Cache {
 		long currentTime = System.currentTimeMillis();
 		if (currentTime - lastUpdatedTime >= 30 * 60 * 1000) {// 30分钟钟更新一次
 			lastUpdatedTime = currentTime;
-			
-			//in 条件不能用占位符？
-			//定时更新首页显示的产品
-			page.setSize(6);
-			hotWordList = hotwordService.findByHql("from Hotword where flag>0 ", null , page,"searchTimes desc");
-			/*热销商品，推荐商品*/
-			//page.setSize(10);
-			//GetReqRes.getServletContext().setAttribute(Const.APP_HOT_PRODUCTS,productService.findByHql("from Product where flag>0 ", null , page,"sellNum desc"));
-			//GetReqRes.getServletContext().setAttribute(Const.APP_RECOMMEND_PRODUCTS,productService.findByHql("from Product where flag>0 ", null , page,"flag desc"));
-			
-			//强制更新系统设置，更新静态数据
 			if (forceRefresh) {
+				hotWordList = hotwordService.findByHql("from Hotword where flag>0 ", null , page,"searchTimes desc");
 				/********* 将staticdata添加至内存 ************/
 				StaticDataCache.clear();
 				List<Staticdata> sds = staticdataService.findByHql(
@@ -91,14 +78,18 @@ public class Cache {
 				List<News> news = newsService.findByHql(
 						"from News where type=:type", DataUtils.getMap("type","PAGE"));
 				Cache.setNews(news);
-				
 				forceRefresh = false;
 			}
 		}
+		
 	}
-	public static void clear() {
+	
+	public static void clear(StaticdataServiceInter staticdataService,SettingServiceInter settingService,NewsServiceInter newsService,
+			HotwordServiceInter hotwordService) {
 		lastUpdatedTime = 0;
 		forceRefresh = true;
+		PageBean page = new PageBean(6);
+		updateCache(staticdataService, settingService, newsService, hotwordService,page);
 	}
 
 	public static long getLastUpdatedTime() {

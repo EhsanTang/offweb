@@ -55,6 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </table>
  <br />
  <input name="id" type="hidden" value="${model.id}" />
+ <input name="flag" type="hidden" value="${model.flag}" />
  
 <div style="width:150px; margin:0px auto;">
 <input type="submit" value="提交" id="Button1" class="l-button l-button-submit"  /> 
