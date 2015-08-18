@@ -12,7 +12,7 @@
  * @returns {Boolean}
  */
 function iLength(id,min,max,message){
-	var length=$("#"+id).val().length;
+	var length=$("#"+id).val().trim().length;
 	if((min!=-1&&length<min)||(max!=-1&&length>max)){
 		$("#"+id).focus();
 		if(message!='')
@@ -21,7 +21,18 @@ function iLength(id,min,max,message){
 	}
 	return true;
 }
-
+function iCompare(id,min,max,message){
+	if(!iDouble(id,"输入只能为数字"))
+		return false;
+	var value=$("#"+id).val();
+	if((value<min)||(value>max)){
+		$("#"+id).focus();
+		if(message!='')
+			alert(message);
+		return false;
+	}
+	return true;
+}
 /**
  * 当传入的值为空时，返回true
  * @param id
@@ -38,6 +49,44 @@ function iShuzi(id,message){
 		return false;
 	}
 	return true;
+}
+function iDouble(id,message){
+	try{
+		var number = $('#'+id).val();
+		if(parseFloat(number)!=number){
+			$("#"+id).focus();
+			if(message!='')
+				alert(message);
+			return false;
+		}else{
+			$('#'+id).val(parseFloat(number));
+			return true;
+		}
+	} catch (ex) {
+		$("#"+id).focus();
+		if(message!='')
+			alert(message);
+		return false;
+	}
+}
+function iInt(id,message){
+	try{
+		var number = $('#'+id).val();
+		if(parseInt(number)!=number){
+			$("#"+id).focus();
+			if(message!='')
+				alert(message);
+			return false;
+		}else{
+			$('#'+id).val(parseInt(number));
+			return true;
+		}
+	} catch (ex) {
+		$("#"+id).focus();
+		if(message!='')
+			alert(message);
+		return false;
+	}
 }
 var patternUsername=/^[a-zA-Z0-9_\u2E80-\u9FFF]{2,20}$/;
 var patternEmail=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
