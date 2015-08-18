@@ -26,6 +26,23 @@ var app = angular.module('app', []);
     		 del(iUrl,item,title,iParam);
     	 }
      });
+     app.controller('webController', function($scope) {
+    	 var params = $("#params").val();
+    	 var url = $("#url").val();
+    	 var result = callAjaxByName("iUrl="+url+"|iPost=true|isHowMethod=return|iAsync=false|iParams="+params);
+    	 if(result.indexOf('[ERROR]') >= 0){
+    		 $scope.error = result.replace('[ERROR]', '');
+    	 }else{
+    		 $scope.list = eval("("+result+")");
+    	 }
+    	 // $("#lookUp").hide();
+    	 /**
+    	  * 分页
+    	  */
+    	 $scope.pageTurn = function (page, key, value) {
+    		 pageTurn(page, key, value);
+    	 }
+     });
 //     lookUp('lookUp','',100,300,3);
 //	 showMessage('lookUp','false',false,-1);
 //	 callAjaxByName("iUrl="+iUrl+"|isHowMethod=updateDiv|iTarget=modal-body|iAsync=false|iParams=&id="+item.id);

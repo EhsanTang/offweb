@@ -19,3 +19,5 @@
 		</div>
 	</div>
 </div>
+<!-- jsp页面跳转、分页传递的参数 -->
+<input type="hidden" id="params" value="${params}"> 
