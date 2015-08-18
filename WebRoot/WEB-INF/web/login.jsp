@@ -43,7 +43,7 @@
 						</div>
 						<div class="form-group">
 						<a title="免费注册"
-								href="preRegister" class="regStyle">没有商城帐号？</a>
+								href="#" class="regStyle">没有帐号？</a>
 						</div>
 					</form>
 				</div>

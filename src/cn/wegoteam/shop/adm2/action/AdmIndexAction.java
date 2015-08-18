@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
+import cn.wegoteam.shop.inter.HotwordServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.inter.SettingServiceInter;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
@@ -35,6 +38,8 @@ public class AdmIndexAction extends BaseAction<User> {
 	private SettingServiceInter settingService;
 	@Autowired
 	private NewsServiceInter newsService;
+	@Autowired
+	private HotwordServiceInter hotwordService;
 	private List<Pick> picks = new ArrayList<Pick>();
 	private String code = "";// 主键
 	private String radio = "";// 是否为单选项
@@ -64,8 +69,8 @@ public class AdmIndexAction extends BaseAction<User> {
 
 	@Action(value = "clear")
 	public void clear() {
-		Cache.clear();
-		writeStringToResponse(SUCCESS + ":更新成功");
+		Cache.clear(staticdataService, settingService, newsService, hotwordService);
+		writeStringToResponse(SUCCESS+":更新成功");
 	}
 
 	@Action(value = "pickOut", results = { @Result(name = SUCCESS, location = ADMIN
