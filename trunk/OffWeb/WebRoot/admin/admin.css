@@ -146,6 +146,44 @@ html,body{
  	display:inline-block!important;
  	height:23px!important;
  }
+ /*****************提示框***************************/
+.look-up {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  background: #000000;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 1050;
+  height: 100px;
+  width: 500px;
+  padding: 10px;
+}
+.look-up-content {
+  border-top: 3px solid #B20000;
+  position: relative;
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  padding-top: 15px;
+  overflow: auto;
+}
+.look-up .i-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #B20000;
+}
+.look-up .text-success {
+  font-weight: bold;
+  font-size: 14px;
+}
+.look-up .i-close:hover {
+  color: #B20000;
+}
 /*******************End:left**********************/
 /*@media (min-width: 768px) {*/
   
