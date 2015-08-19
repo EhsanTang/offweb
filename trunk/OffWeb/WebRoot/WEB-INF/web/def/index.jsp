@@ -1,11 +1,11 @@
 <%@ page language="java" import="java.util.*"
 	pageEncoding="UTF-8"%>
-<%@include file="../subPages/css.jsp"%>
+<%@include file="subPages/css.jsp"%>
 <body>
-	<%@include file="../subPages/top.jsp"%>
-	<%@include file="../subPages/nav.jsp"%>
+	<%@include file="subPages/top.jsp"%>
+	<%@include file="subPages/nav.jsp"%>
 	<div class="w">
-			<%@include file="../subPages/slide.jsp"%>
+			<%@include file="subPages/slide.jsp"%>
 	</div>
 			<!--<iframe unselectable="on" src="slide?num=1"
 				style="margin-top:-30px;width: 100%; height:436px;" frameborder="no"
@@ -43,7 +43,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<%@include file="../subPages/footer.jsp"%>
+	<%@include file="subPages/footer.jsp"%>
 	<script type="text/javascript">
 		slideHeight();
 	</script>

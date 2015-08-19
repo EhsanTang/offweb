@@ -112,8 +112,7 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 	public void setLink(String link) {
 		this.link = link;
 	}
-
-
+	
 	@Column(name = "order_list")
 	public Integer getOrder() {
 		return this.order;

@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -42,11 +43,10 @@ public class IndexAction extends BaseAction<User> {
 	private NewsServiceInter newsService;
 	@Autowired
 	HotwordServiceInter hotwordService;
-	private String p;
 	
 	// 跳转到JSP页面
 		@Action(value = "go", results = { @Result(name = "success", location = WEB
-				+ "${p}.jsp") })
+				+ "${subject}/${p}.jsp") })
 		public String go() {
 			StringBuilder sb = new StringBuilder();
 			if (request.getParameterMap() != null) {
@@ -65,12 +65,8 @@ public class IndexAction extends BaseAction<User> {
 		
 	// 调转到主页action
 	@Action(value = "index", results = { @Result(name = "success", location = WEB
-			+ "index.jsp") })
+			+ "${subject}/index.jsp") })
 	public String index() {
-			// 添加购物车数量至session
-			pageBean.setSize(6);
-			Cache.updateCache( staticdataService,
-					settingService,newsService,hotwordService, pageBean);
 			return SUCCESS;
 	}
 	// 调转到主页action
@@ -86,19 +82,6 @@ public class IndexAction extends BaseAction<User> {
 			writeStringToResponse("[OK]没有数据！");
 		}
 	}
-	// 异步加载百度分享、QQ等
-	@Action(value = "asynLoad", results = {
-			@Result(name = "baiduShare", location = SUBPAGES+ "baiduShare.jsp"),
-			@Result(name = "QQ", location = SUBPAGES+ "QQ.jsp") })
-	public String asynLoad() {
-		String type=getParameter("p_type", "error");
-		if(type.equals("baiduShare")){
-			request.setAttribute("basePath", request.getAttribute("basePath"));
-			return type;
-		}
-		return type;
-	}
-	
 	/**
 	 * 异常处理Action
 	 * 打印异常，并发送邮件
@@ -142,15 +125,6 @@ public class IndexAction extends BaseAction<User> {
 			}
 		}
 		return SUCCESS;
-	}
-
-	public String getP() {
-		String str = p.replace(".", "\\");
-		return str;
-	}
-
-	public void setP(String p) {
-		this.p = p;
 	}
 
 }

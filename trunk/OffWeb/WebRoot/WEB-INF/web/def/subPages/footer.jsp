@@ -2,7 +2,7 @@
 <!-- 在线客服 -->
 <div id="custom-service" class="hidden-xs r2 custom-service tc">
 	<ul>
-		<li class="transition n-border" onmouseover="asynLoad('asynLoad','QQ','&p_type=QQ')">
+		<li class="transition n-border">
 			<i class="iconfont">&#xe609;</i>
 			<div class="content h50" id="QQ"></div>
 			<div class="triangle"><i class="iconfont f20">&#xe62e;</i></div>
@@ -24,7 +24,7 @@
 			<div class="triangle"><i class="iconfont f20">&#xe62e;</i></div>
 		</li>
 		<li class="transition"><i class="iconfont">&#xe62a;</i></li>
-		<li class="transition" onmouseover="asynLoad('asynLoad','bdsharebuttonbox','&p_type=baiduShare&pageTitle=${pageTitle}&basePath=<%=basePath%>')">
+		<li class="transition">
 			<i class="iconfont">&#xe607;</i>
 			<div class="content w120 h100" id="bdsharebuttonbox"></div>
 			<div class="triangle"><i class="iconfont f20">&#xe62e;</i></div>
@@ -169,3 +169,7 @@
 	</div>
 </div>
 <%@include file="../subPages/js.jsp"%>
+<script type="text/javascript">
+callAjaxByName('iUrl=go|isHowMethod=html|iTarget=bdsharebuttonbox|iParams=&p=subPages.baiduShare&pageTitle=${pageTitle}&basePath=${WEBURL}');
+callAjaxByName('iUrl=go|isHowMethod=html|iTarget=QQ|iParams=&p=subPages.QQ&pageTitle=${pageTitle}&basePath=${WEBURL}');
+</script>

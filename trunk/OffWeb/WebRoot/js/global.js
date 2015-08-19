@@ -2,10 +2,6 @@
 //String.prototype.trim = function () {
 //    return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 //}
-$("a").click(function (){
-	lookUp('lookUp','',100,200,3);
-	showMessage('lookUp','false',false,-1);
-});
 function setCookie(){
 	if(getUrlParam('authorization')!=''){
 		document.cookie="historyUrl="+escape(window.location.href); 

@@ -27,6 +27,10 @@ public class Const {
 	public static final String ImgExport="&#xe64b;";
 	public static final String ImgSearch = "&#xe600;";
 	//setting
+	public static final String SUBJECT = "SUBJECT";//主题
+	
+	
+	
 	public static final String ALIYUNOSSURL="ALIYUNOSSURL";
 	public static final String LUCENEURL="LUCENEURL";
 	public static final String SMS="SMS";
