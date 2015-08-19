@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.ServletContext;
+
 import cn.crap.utils.DataUtils;
 import cn.crap.utils.GetReqRes;
 import cn.crap.utils.PageBean;
@@ -43,6 +45,7 @@ public class Cache {
 	}
 	/****************************************************************/
 	private static Map<String,News> newsList=new HashMap<String,News>();
+	
 	public static void setNews(List<News> news){
 		for(News s:news){
 			newsList.put(s.getTag(), s);
@@ -52,6 +55,13 @@ public class Cache {
 		if(newsList.containsKey(tag))
 			return newsList.get(tag);
 		return null;
+	}
+	public static List<News> getNewsList(){
+		List<News> list = new ArrayList<News>();
+		for(String key:newsList.keySet()){
+			list.add(newsList.get(key));
+		}
+		return list;
 	}
 	
 	//首页产品，产品存application范围内

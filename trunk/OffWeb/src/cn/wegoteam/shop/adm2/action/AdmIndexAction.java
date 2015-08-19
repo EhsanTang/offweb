@@ -19,6 +19,7 @@ import cn.wegoteam.shop.inter.HotwordServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.inter.SettingServiceInter;
 import cn.wegoteam.shop.inter.StaticdataServiceInter;
+import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.Staticdata;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.polist.Pick;
@@ -94,7 +95,19 @@ public class AdmIndexAction extends BaseAction<User> {
 				}
 				pick = new Pick();
 				pick.setId(o.getCode());
+				pick.setValue(o.getCode());
 				pick.setName(o.getPcode() + "-" + o.getName());
+				picks.add(pick);
+			}
+		}
+		else if (code.equals("MENU")) {
+			List<News> list;
+			list = Cache.getNewsList();
+			for (News n : list) {
+				pick = new Pick();
+				pick.setId(n.getTag());
+				pick.setValue("go?p=detail&p_tag="+n.getTag());
+				pick.setName(n.getTag() + "-" + n.getCntitle());
 				picks.add(pick);
 			}
 		}

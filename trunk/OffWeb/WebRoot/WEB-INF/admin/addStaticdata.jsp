@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-
+<script src="admin/addPageInit.js?${JSCSS}" type="text/javascript"></script>
 <form name="editForm" id="editForm">
 	<table class="table table-bordered">
 		<tr>
@@ -28,12 +28,26 @@
 			<td><input class="form-control" name="type" type="text"
 				value="${model.type}" /></td>
 		</tr>
-		<tr>
+		<s:if test="model.pcode.equals('MENU')">
+			<tr>
+				<td>链接页面:</td>
+				<td><input class="form-control" name="link" id="link"
+					value="${model.link}" type="text"
+					onclick="loadPick(event,360,240,'true','link','MENU','','${model.link}','');" />
+				</td>
+			</tr>
+		</s:if>
+		<s:else>
+			<tr>
 			<td>链接</td>
-			<td><textarea class="form-control" name="link" rows="10"
+			<td>
+				<textarea class="form-control" name="link" rows="10"
 					cols="10" style="width:100%;text-align:left; height:80px;"><s:property
-						value="model.link" /></textarea></td>
+						value="model.link" /></textarea>
+			</td>
 		</tr>
+		</s:else>
+		
 		<tr>
 			<td>名称:</td>
 			<td><input class="form-control" name="name" type="text"

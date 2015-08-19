@@ -68,7 +68,7 @@
 			<div style="padding:5px;" id="d_${id}" onclick="pickCheck('${id}');"
 				onmouseout="pickMouseOut('d_${id}');"
 				onmouseover="pickMouseOver('d_${id}');">
-				<input id="${id}" type="radio" <s:if test="def.equals(id)">checked</s:if> name="cid" value="${id}">&nbsp;&nbsp;${name}
+				<input id="${id}" type="radio" <s:if test="def.equals(id)">checked</s:if> name="cid" value="${value}">&nbsp;&nbsp;${name}
 			</div>
 		</s:iterator>
 	</s:if>
@@ -78,7 +78,7 @@
 				onmouseout="pickMouseOut('d_${id}');"
 				onmouseover="pickMouseOver('d_${id}');">
 				<input id="${id}" type="checkbox" name="cid"
-					<s:if test="def.contains(id)">checked</s:if> value="${id}">&nbsp;&nbsp;${name}<br>
+					<s:if test="def.contains(id)">checked</s:if> value="${value}">&nbsp;&nbsp;${name}<br>
 			</div>
 		</s:iterator>
 	</s:else>
