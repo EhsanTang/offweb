@@ -23,7 +23,7 @@
 			</div>
 
 			<!-- 分页url -->
-			<input id="href" type="hidden" value="adminJsp" />
+			<input id="href" type="hidden" value="go" />
 			<div class="mb20 cb"></div>
 			<%@include file="../../admin/page.html"%>
 		</div>
