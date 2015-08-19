@@ -9,12 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> <title>YTWorld</title>  
 </head>  
 <script>
- try {
-	top.location.href = "http://yitongworld.com/index";
-	} 
-	catch(e) 
-	{
-		top.location.href = "http://yitongworld.com/index";
-	}</script>
+	top.location.href = "${WEBURL}/index";
+</script>
 <body> </body> 
 </html>
