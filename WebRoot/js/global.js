@@ -5,6 +5,14 @@ String.prototype.trim = function () {
 $("#go_top").click(function (){
 	$("html, body").animate({ scrollTop: 0 }, 400);
 });
+function slideHeight(){
+	var $this=$("#carousel-example-generic");
+	if($(window).width()>800){
+		$this.css({height:($(window).height()-$this.offset().top-2)+"px"});
+	}else{
+		$this.css({height:"auto"});
+	}
+} 
 function setCookie(){
 	if(getUrlParam('authorization')!=''){
 		document.cookie="historyUrl="+escape(window.location.href); 
