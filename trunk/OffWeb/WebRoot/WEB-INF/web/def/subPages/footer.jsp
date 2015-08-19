@@ -36,35 +36,6 @@
 		</li>
 		</ul>
 </div>
-<!-- 搜索框 需要改为异步加载-->
-<div id="hot_serach_list" class="keyword-list">
-</div>
-
-<!-- 提示窗口 -->
-<div id="lookUp" class="look-up">
-	<div id="lookUpContent" class="look-up-content"></div>
-	<i class="iconfont i-close" onclick="iClose('lookUp')">&#xe628;</i>
-</div>
-<!-- 对话框 -->
-<div class="imodal modal fade" id="myModal" role="dialog"
-	aria-label="myModalLabel" aria-hidden="true">
-	<div id="modal-dialog" class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title"></h4>
-			</div>
-			<div class="modal-body" id="modal-body"></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn btn-danger btn-xs"
-					data-dismiss="modal">关闭</button>
-			</div>
-		</div>
-	</div>
-</div>
 <div class="footer f12 pt20 shadow border-top-color">
 	<div class="container">
 		<div class="row pb10">
@@ -72,21 +43,22 @@
 				<span class="title pt10 pb10 f16"><s:property value="@Static@getStatic('L_INTRODUCTION').lang"/></span><br> 
 				<span class="pt20">
 					<!-- <s:property value="@cn.wegoteam.shop.cache.Cache@getNews('F_BRIEF').content" escape="false"/> -->
-					<a href="http://www.pgyer.com/uxyv" class="fl w100" href="javascript:void(0);" target="_blank">
-						<img src="images/ios.jpg"  class="fl" width="100px"/>
-						<br/><span class="cb mt10 tc w100">IOS下载</span>
+					<a href="${IOS_LINK}" class="fl w100" href="javascript:void(0);" target="_blank">
+						<img src="${IOS_IMG}"  class="fl" width="100px"/>
+						<br/><span class="cb mt10 tc w100">
+							<s:property value="@Static@getStatic('L_IOS').lang"/></span>
 					</a>
 					
-					<a class="fl ml20 w100" href="http://zhushou.360.cn/detail/index/soft_id/3040905" target="_blank">
-						<img src="images/android.jpg"  class="fl" width="100px"/>
-						<br/><span class="cb mt10 tc w100">安卓下载</span>
+					<a class="fl ml20 w100" href="${ANDROID_LINK}" target="_blank">
+						<img src="${ANDROID_IMG}"  class="fl" width="100px"/>
+						<br/><span class="cb mt10 tc w100"><s:property value="@Static@getStatic('L_ANDROID').lang"/></span>
 					</a>
 				</span>
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-12 p0 links">
-				<span class="title pt10 pb10 f16"><s:property value="@Static@getStatic('L_FRIENDLY').lang"/></span><br> 
+				<span class="title pt10 pb10 f16"><s:property value="@Static@getStatic('L_LANGUAGE').lang"/></span><br> 
 				<s:iterator
-						value="@cn.wegoteam.shop.cache.StaticDataCache@getStaticdatas('L_FRIENDLY','NO')">
+						value="@cn.wegoteam.shop.cache.StaticDataCache@getStaticdatas('L_LANGUAGE','NO')">
 						<a href="${link}" style="color:#ffffff;">${description}${lang}</a>
 				</s:iterator>
 			</div>

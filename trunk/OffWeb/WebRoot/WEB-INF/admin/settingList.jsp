@@ -19,7 +19,7 @@
 						<td class="tc">{{item.id}}</td>
 						<td class="tc">{{item.key}}</td>
 						<td class="tc">{{item.value}}</td>
-						<td class="tc">{{item.remark}}</td>
+						<td class="tc"><span ng-bind-html="item.remark|trustHtml"></span></td>
 						<td class="tc">{{item.showAddTime}}</td>
 						<td class="tc">
 							<a class="f12 text-primary" data-toggle="tooltip" data-placement="top" title="编辑'{{item.id}}'"

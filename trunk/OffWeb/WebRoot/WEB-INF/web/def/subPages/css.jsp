@@ -18,8 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/base-min.css" rel="stylesheet" type="text/css" />
-<link href="css/global.css" rel="stylesheet" type="text/css" />
-<link href="css/pageCss.css" rel="stylesheet" type="text/css" />
+<link href="def/global.css" rel="stylesheet" type="text/css" />
+<link href="def/pageCss.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 	.primary-color{color:${PRIMARY_COLOR}}
 	.second-color{color:${SECOND_COLOR}}
