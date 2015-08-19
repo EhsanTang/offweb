@@ -36,7 +36,7 @@ public class UserAction extends BaseAction<User> {
 	private String succMess;
 
 	@Action(value = "preLogin", results = { @Result(name = SUCCESS, location = WEB
-			+ "login.jsp") })
+			+ "${subject}/login.jsp") })
 	public String preLogin() {
 		if (model == null) {
 			model = new User();
@@ -49,7 +49,7 @@ public class UserAction extends BaseAction<User> {
 
 	@Action(value = "login", results = {
 			@Result(name = SUCCESS, type = "chain", location = "manageIndex"),
-			@Result(name = ERROR, location = WEB + "login.jsp") })
+			@Result(name = ERROR, location = WEB + "${subject}/login.jsp") })
 	public String login() {
 		try {
 			tipMessage = userService.login(session,request.getParameter(Const.SESS_RANDOM_IMG), model);

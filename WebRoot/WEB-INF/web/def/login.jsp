@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@include file="../subPages/css.jsp"%>
+<%@include file="subPages/css.jsp"%>
 <link href="css/login.css" rel="stylesheet" type="text/css" />
 <body style="background:${BG};">
-	<%@include file="../subPages/top.jsp"%>
+	<%@include file="subPages/top.jsp"%>
 	<div id="particles-js" style="position:absolute;top:0px;bottom:0px;left:0px; right:0px;
 			width: 100%; height: 100%; background: #2472b4;">
 	</div>
@@ -52,7 +52,7 @@
 		</div>
 	<!-- JavaScript 放置在文档最后面可以使页面加载速度更快 -->
 	<!-- 可选: 包含 jQuery 库 -->
-	<%@include file="../subPages/js.jsp"%>
+	<%@include file="subPages/js.jsp"%>
     <script type="text/javascript" src="js/loginCanvas2.js"></script>
     <script type="text/javascript" src="js/loginCanvas1.js"></script>
     <script type="text/javascript" src="js/jquery.base64.js"></script>

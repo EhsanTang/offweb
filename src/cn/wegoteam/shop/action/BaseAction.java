@@ -1,5 +1,7 @@
 package cn.wegoteam.shop.action;
 
+import org.apache.commons.lang.StringUtils;
+
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.po.User;
@@ -8,9 +10,20 @@ import cn.wegoteam.shop.util.Const;
 
 public abstract class BaseAction<T> extends cn.crap.base.BaseAction<T>{
 
-	/**
-	 * 
-	 */
+	private String p;
+	public String getP() {
+		String paths[] = p.split("\\.");
+		return StringUtils.join(paths,"\\");
+	}
+	public String getSubject(){
+		return Cache.getSetting(Const.SUBJECT).getValue();
+	}
+	public void setP(String p) {
+		this.p = p;
+	}
+	public BaseAction(){
+		//paramMap.put(Const.SUBJECT, Cache.getSetting(Const.SUBJECT).getValue());
+	}
 	private static final long serialVersionUID = 1L;
 	public void putSessionUser(User user) {
 		session.remove(Const.SESS_USER);

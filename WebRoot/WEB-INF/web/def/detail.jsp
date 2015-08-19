@@ -1,9 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<%@include file="../../subPages/css.jsp"%>
+<%@include file="subPages/css.jsp"%>
 <body class="small-width">
-	<%@include file="../../subPages/top.jsp"%>
-	<%@include file="../../subPages/nav.jsp"%>
+	<%@include file="subPages/top.jsp"%>
+	<%@include file="subPages/nav.jsp"%>
 	 <input id="url" type="hidden" value="newsDetail">
 	<div class="container mb30" ng-app="app" class="p10" ng-controller="webController">
 			<div class="news-detail row shadow bg-white mt10 p50 lh26 min-h400">
@@ -20,7 +20,7 @@
 			</div>
 	</div>
 	<!--包含底部的页面  -->
-	<%@include file="../../subPages/footer.jsp"%>
+	<%@include file="subPages/footer.jsp"%>
 </body>
 
 
