@@ -9,8 +9,7 @@
 		</div>
 		<div class="fr">
 			<s:iterator
-				value="@cn.wegoteam.shop.cache.StaticDataCache@getStaticdatas('TOPBAR_R','NO')"
-				status="st">
+				value="@Static@getStaticdatas('TOPBAR_R','NO')" status="st">
 				<a href="${link}">${description}${lang}</a>
 				<s:if test="!#st.last">
 					<span>|</span>
