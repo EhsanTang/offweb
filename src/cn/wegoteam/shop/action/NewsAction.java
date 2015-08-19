@@ -33,7 +33,6 @@ public class NewsAction extends BaseAction<News> {
 
 	@Action(value = "newsList")
 	public void newsList() {
-		pageBean.setSize(10);
 		map.put("type", getParameter("p_type", NewsType.INFOR.name()));
 		map.put("flag|>", 0);
 		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap));

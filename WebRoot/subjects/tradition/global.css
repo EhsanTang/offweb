@@ -298,15 +298,29 @@ body {
   margin-top: -5px;
 }
 
+.navbar-nav a{
+ 	height:70px;
+ 	line-height:70px;
+ 	color:#fff!important;
+ 	padding-top:25px!important;
+}
+.navbar-nav a:hover{
+ 	background:#e35b21!important;
+ 	color:#fff!important;
+}
 /*****************End：手机导航********************/
 @media (min-width: 1280px) {
   .small-width .container {
   	width: 980px!important;
  	 padding: 0px;
-}
+ }
+ 
 }
 @media (max-width: 767px) {
-
+	.navbar-nav a{
+ 		height:auto;
+ 		line-height:auto;
+	}
 }
 
 

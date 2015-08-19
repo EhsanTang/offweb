@@ -10,3 +10,15 @@
 .news-detail img{
 	max-width:100%;
 }
+.index-news{
+	background:#DDD;
+}
+.index-news img{
+	width:100%;
+	heigt:auto;
+	min-height:150px;
+	max-height:200px;
+}
+.index-news{
+	
+}
