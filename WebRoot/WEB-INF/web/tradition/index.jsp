@@ -13,8 +13,8 @@
 			<div class="row mt20 ml-5 mr-5">
 				<div class="col-md-4 p5"  ng-repeat="item in list.Rows track by $index">
 					<img alt="" src="{{item.imgUrl}}">
-					<div class="bg-white p10">
-						<a ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
+					<div class="bg-white p20">
+						<a class="f16" ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
 						{{item.brief}}
 					</div>
 				</div>

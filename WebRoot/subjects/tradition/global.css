@@ -304,10 +304,6 @@ body {
  	color:#fff!important;
  	padding-top:25px!important;
 }
-.navbar-nav a:hover{
- 	background:#e35b21!important;
- 	color:#fff!important;
-}
 /*****************End：手机导航********************/
 @media (min-width: 1280px) {
   .small-width .container {
