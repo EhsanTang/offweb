@@ -30,7 +30,8 @@ public class NewsAction extends BaseAction<News> {
 	public void newsList() {
 		map.put("type", getParameter("p_type", Const.NEWS_INFOR));
 		map.put("flag|>", 0);
-		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap));
+		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap, 
+				new String[]{"cntitle","entitle","cncontent","encontent","cnbrief","enbrief","addTime","flagName"}));
 	}
 
 	@Action(value = "newsDetail")

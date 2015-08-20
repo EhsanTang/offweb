@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	.second-bg{background:${SECOND_COLOR}}
 	.match-bg{background:${MATCH_COLOR}}
 	.a a{color:${LINK_COLOR}!important}
-	.a a:hover{color:${HOVER_COLOR}!important}
+	.ah a:hover{color:${HOVER_COLOR}!important}
 	.border-left-color{border-left-color:${MATCH_COLOR}}
 	.border-top-color{border-top-color:${MATCH_COLOR}}
 	/*menu background color*/

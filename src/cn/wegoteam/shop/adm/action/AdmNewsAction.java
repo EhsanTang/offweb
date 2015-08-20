@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import cn.crap.utils.DataUtils;
+import cn.crap.utils.MyString;
 import cn.wegoteam.shop.action.BaseAction;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.po.News;
@@ -51,6 +52,8 @@ public class AdmNewsAction extends BaseAction<News> {
 	// 添加
 	@Action(value = "admAddNews")
 	public void addNews() {
+		if(MyString.isEmpty(model.getTag()))
+			model.setTag(null);
 		newsService.saveOrUpdate(model);
 		writeStringToResponse("[OK]操作成功！");
 	}

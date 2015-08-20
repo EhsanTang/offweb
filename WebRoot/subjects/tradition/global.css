@@ -4,7 +4,7 @@ body{
 }
 a{text-decoration:none;color:#333;cursor:pointer;}
 a:hover{text-decoration:none;color:#999;}
-
+.CDDD{color:#DDD;}
 /*************顶部导航条：top-bar************/
 .top-bar {
 	min-height: 30px;
@@ -301,9 +301,9 @@ body {
 .navbar-nav a{
  	height:70px;
  	line-height:70px;
- 	color:#fff!important;
  	padding-top:25px!important;
 }
+
 /*****************End：手机导航********************/
 @media (min-width: 1280px) {
   .small-width .container {

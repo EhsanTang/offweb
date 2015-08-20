@@ -4,5 +4,6 @@
 <script src="js/validateAndRefresh.js?${JSCSS}"></script>
 <script src="js/core.js?${JSCSS}"></script>
 <script src="js/global.js?${JSCSS}"></script>
+<script src="admin/admin.js?${JSCSS}"></script>
 <script src="admin/angular.js?${JSCSS}"></script>
 <script src="admin/myAngular.js?${JSCSS}"></script>

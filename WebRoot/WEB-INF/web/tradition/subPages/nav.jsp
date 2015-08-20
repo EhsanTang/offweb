@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<div class="navbar navbar-inverse primary-bg n-border no-radius shadow">
+<div class="navbar navbar-inverse primary-bg n-border no-radius shadow a">
 			<div class="container">
 			<a href="index"><img class="logo fl mt15 mr30" src="${LOGOIMG}" /></a>
 				<div class="navbar-header p0 mt10">

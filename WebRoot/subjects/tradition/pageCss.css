@@ -10,15 +10,40 @@
 .news-detail img{
 	max-width:100%;
 }
+.index-product{
+	background:#FFF;
+}
 .index-news{
 	background:#DDD;
 }
+.index-news .img{
+	width:550px!important;
+	height:auto!important;
+}
+.index-news .news{
+	margin-left:-30px!important; margin-right:-30px!important;
+}
 .index-news img{
 	width:100%;
-	heigt:auto;
-	min-height:150px;
-	max-height:200px;
+	height:200px;
 }
-.index-news{
-	
+.index-news .brief{
+	line-height:26px;
+	height:300px;
+	overflow:hidden;
+}
+
+@media (max-width: 767px) {
+	.index-news img{
+		width:100%;
+		height:auto;
+	}
+	.index-news .brief{
+		line-height:24px;
+		height:auto;
+	}
+	.index-news .img{
+		width:250px!important;
+		height:auto!important;
+	}
 }

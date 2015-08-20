@@ -86,6 +86,20 @@ function addParams(params, key, value){
 	}
 	return newParams;
 }
+function getParams(key){
+	var params = $("#params").val();
+	if(key && params.indexOf(key)>=0){
+		var splitstr= new Array();
+		splitstr=params.split("&");
+		for(var i=0;i<splitstr.length;i++)
+		{
+			var param = splitstr[i].split("=");
+			if(param[0] == key && value){
+				return "&"+key+"="+value;
+		}
+	}
+	return "";
+}
 	function getPhoneArea(phone,target){
    	    callAjaxByName("iUrl=getPhoneArea|iPost=true|isHowMethod=3|iTarget="+target+"|iParams=&p_phone="+phone);
    	}
