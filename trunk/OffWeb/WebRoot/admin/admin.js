@@ -96,6 +96,7 @@ function getParams(key){
 			var param = splitstr[i].split("=");
 			if(param[0] == key && value){
 				return "&"+key+"="+value;
+			}
 		}
 	}
 	return "";

@@ -36,17 +36,22 @@ var app = angular.module('app', []);
     		 $scope.list = eval("("+result+")");
     	 }
      });
-     app.controller('newsController', function($scope) {
-    	 var params = "&p=list" + getParams("p_type");
-    	 var url = "go";
-    	 var result = callAjaxByName("iUrl="+url+"|iPost=true|isHowMethod=return|iAsync=false|iParams="+params);
+     app.controller('inforController', function($scope) {
+    	 var params = "&p=list&p_type=INFOR&pageBean.size=3";
+    	 var result = callAjaxByName("iUrl=newsList|iPost=true|isHowMethod=return|iAsync=false|iParams="+params);
     	 if(result.indexOf('[ERROR]') >= 0){
     		 $scope.error = result.replace('[ERROR]', '');
     	 }else{
     		 $scope.list = eval("("+result+")");
     	 }
-    	 $scope.pageTurn = function (page, key, value) {
-    		 pageTurn(page, key, value);
+     });
+     app.controller('productController', function($scope) {
+    	 var params = "&p=list&p_type=PRODUCT&pageBean.size=3";
+    	 var result = callAjaxByName("iUrl=newsList|iPost=true|isHowMethod=return|iAsync=false|iParams="+params);
+    	 if(result.indexOf('[ERROR]') >= 0){
+    		 $scope.error = result.replace('[ERROR]', '');
+    	 }else{
+    		 $scope.list = eval("("+result+")");
     	 }
      });
 //     lookUp('lookUp','',100,300,3);

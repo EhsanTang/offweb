@@ -67,7 +67,6 @@ public class IndexAction extends BaseAction<User> {
 	@Action(value = "index", results = { @Result(name = "success", location = WEB
 			+ "${subject}/index.jsp") })
 	public String index() {
-			request.setAttribute("params", "&pageBean.size=3");
 			return SUCCESS;
 	}
 	// 调转到主页action
