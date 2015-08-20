@@ -15,11 +15,23 @@
 			<td><input name="key" class="form-control" type="text"
 				value="${model.key}" <s:if test="model.id!=null">readonly</s:if> /></td>
 		</tr>
-		<tr>
-			<td>值:</td>
-			<td><input name="value" class="form-control" id="value"
-				value="${model.value}" type="text" id="txtName" /></td>
-		</tr>
+		<s:if test="model.key.equals('SUBJECT')">
+			<tr>
+				<td>选择主题:</td>
+				<td><input class="form-control" name="value" id="value"
+					value="${model.value}" type="text"
+					onclick="loadPick(event,360,240,'true','value','STATICDATA','','${model.value}','&p_code=SUBJECT&p_type=NO');" />
+				</td>
+			</tr>
+		</s:if>
+		<s:else>
+			<tr>
+				<td>值:</td>
+				<td><input name="value" class="form-control" id="value"
+					value="${model.value}" type="text" id="txtName" /></td>
+			</tr>
+		</s:else>
+
 		<tr>
 			<td>备注:</td>
 			<td><textarea name="remark" class="form-control" id="remark"
@@ -32,8 +44,8 @@
 		</tr>
 
 	</table>
-	<input name="id" type="hidden" value="${model.id}" /> 
-	<input name="flag" type="hidden" value="${model.flag}" />
+	<input name="id" type="hidden" value="${model.id}" /> <input
+		name="flag" type="hidden" value="${model.flag}" />
 	<div class="form-group">
 		<input type="button" value="提交" class="form-control btn btn-success"
 			onclick="modifySetting('admAddSetting')" />
@@ -42,8 +54,8 @@
 <textarea id="elm1" rows="15" cols="20"
 	style="width: 100%; height:200px;"></textarea>
 <script type="text/javascript">
-function modifySetting(url){
-	${model.verify};
-	submitEdit(url);
-}
+	function modifySetting(url) {
+		${model.verify};
+		submitEdit(url);
+	}
 </script>
