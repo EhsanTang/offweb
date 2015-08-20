@@ -18,6 +18,7 @@ public class Const {
 	public static final String CurrentPage = "CurrentPage";
 	public static final String SortName = "sortname";
 	public static final String SortOrder = "sortorder";
+	
 	//flag
 	public static final int UNUSERABLE = -1;
 	//Image
@@ -46,8 +47,6 @@ public class Const {
 	public final static String SETTING_LIST = "SETTING_LIST";//系统参数
 	public final static String ADMIN_NEWS="ADMIN_NEWS";//新闻资讯管理
 	public final static String NEWS_TOP="NEWS_TOP";//顶置
-	public final static String NEWS_PAGE="NEWS_PAGE";//页面网站
-	public final static String NEWS_INFOR="NEWS_INFOR";//新闻资讯
 	public final static String ADMIN_USER="ADMIN_USER"; //公司管理员
 	public final static String USER_ADMIN="USER_ADMIN";//管理员
 	public final static String USER_COMMON="USER_COMMON";//普通管理员
@@ -60,9 +59,14 @@ public class Const {
 	public static final String SESS_RETURNURL="returnUrl";//登录后跳转页面
 	
 	/********************staticdata key******************/
+	public static final String NEWS_INFOR = "INFOR";//新闻类型：新闻资讯
+	public static final String NEWS_PAGE = "PAGE";//新闻类型：网站页面
+	public static final String NEWS_TYPE = "NEWSTYPE";
+	
 	public static final String STATIC_SUBNAV ="SUBNAV";
 	public static final String STATIC_NAV ="NAV";
 	public static final String STATIC_ATTR="ATTR";
+	
 	
 	//staticdata type
 	public static final String PP ="PP";//品牌

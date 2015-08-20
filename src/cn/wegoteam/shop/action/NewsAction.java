@@ -5,14 +5,9 @@ import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
-import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import cn.crap.utils.DataUtils;
-import cn.crap.utils.GetReqRes;
 import cn.wegoteam.shop.cache.Cache;
-import cn.wegoteam.shop.enu.NewsType;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
 import cn.wegoteam.shop.po.Comment;
@@ -33,7 +28,7 @@ public class NewsAction extends BaseAction<News> {
 
 	@Action(value = "newsList")
 	public void newsList() {
-		map.put("type", getParameter("p_type", NewsType.INFOR.name()));
+		map.put("type", getParameter("p_type", Const.NEWS_INFOR));
 		map.put("flag|>", 0);
 		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap));
 	}

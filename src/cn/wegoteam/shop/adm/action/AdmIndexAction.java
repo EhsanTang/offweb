@@ -23,6 +23,7 @@ import cn.wegoteam.shop.po.News;
 import cn.wegoteam.shop.po.Staticdata;
 import cn.wegoteam.shop.po.User;
 import cn.wegoteam.shop.polist.Pick;
+import cn.wegoteam.shop.util.Const;
 
 @ParentPackage("manage")
 @Namespace("/")
@@ -101,13 +102,20 @@ public class AdmIndexAction extends BaseAction<User> {
 			}
 		}
 		else if (code.equals("MENU")) {
-			List<News> list;
-			list = Cache.getNewsList();
-			for (News n : list) {
+			List<News> newsList = Cache.getNewsList();
+			for (News n : newsList) {
 				pick = new Pick();
 				pick.setId(n.getTag());
 				pick.setValue("go?p=detail&p_tag="+n.getTag());
-				pick.setName(n.getTag() + "-" + n.getCntitle());
+				pick.setName("页面："+n.getTag() + "-" + n.getCntitle());
+				picks.add(pick);
+			}
+			List<Staticdata> staticdataList = StaticDataCache.getStaticdatas(Const.NEWS_TYPE, Const.NO);
+			for(Staticdata s: staticdataList){
+				pick = new Pick();
+				pick.setId(s.getCode());
+				pick.setValue("go?p=list&p_type="+s.getCode());
+				pick.setName("列表："+s.getCode() + "-" + s.getName());
 				picks.add(pick);
 			}
 		}
