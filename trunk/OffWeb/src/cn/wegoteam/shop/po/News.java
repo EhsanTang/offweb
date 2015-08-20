@@ -1,20 +1,12 @@
 package cn.wegoteam.shop.po;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
 import cn.crap.base.BasePo;
 import cn.crap.utils.GetReqRes;
 import cn.crap.utils.MyString;
-import cn.wegoteam.shop.enu.NewsType;
 
 /**
  * News entity. @author MyEclipse Persistence Tools
@@ -31,7 +23,7 @@ public class News extends BasePo implements java.io.Serializable {
 	private String date;// 新闻添加时间
 	private Integer click;// 新闻点击量
 	private String imgUrl;// 新闻图片
-	private NewsType type;// 新闻类型
+	private String type;// 新闻类型
 	private boolean canComment;//是否可以评论
 	//联系我们等
 	private String tag;
@@ -115,13 +107,12 @@ public class News extends BasePo implements java.io.Serializable {
 		this.imgUrl = imgUrl;
 	}
 
-	@Column(name = "type", nullable = false, length = 10)
-	@Enumerated(EnumType.STRING)
-	public NewsType getType() {
+	@Column(name = "type", nullable = false, length = 15)
+	public String getType() {
 		return this.type;
 	}
 
-	public void setType(NewsType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	
