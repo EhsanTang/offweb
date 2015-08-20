@@ -26,11 +26,11 @@
 		</tr>
 		<tr>
 			<td>评论:</td>
-			<td>是否可以评论：<input class="form-control" type="radio"
-				name="canComment" <s:if test="model.canComment">checked</s:if>
-				value="true">是 <input class="form-control" type="radio"
-				name="canComment" <s:if test="!model.canComment">checked</s:if>
-				value="false">否
+			<td>是否可以评论： <input type="radio" name="canComment"
+				<s:if test="model.canComment">checked</s:if> value="true">&nbsp;&nbsp;
+				是 <input type="radio" name="canComment"
+				<s:if test="!model.canComment">checked</s:if> value="false">&nbsp;&nbsp;
+				否
 			</td>
 		</tr>
 		<tr>
@@ -38,7 +38,16 @@
 			<td><input name="tag" type="text" class="form-control"
 				value="${model.tag}" /></td>
 		</tr>
-
+		<tr>
+			<td>中文简介:</td>
+			<td><textarea name="cnbrief" class="form-control" id="cnbrief"
+					rows="3">${model.cnbrief}</textarea></td>
+		</tr>
+		<tr>
+			<td>英文简介:</td>
+			<td><textarea name="enbrief" class="form-control" id="enbrief"
+					rows="3">${model.enbrief}</textarea></td>
+		</tr>
 		<tr>
 			<td>点击量:</td>
 			<td>${model.click}<input name="click" type="hidden"
