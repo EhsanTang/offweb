@@ -13,6 +13,10 @@
 .index-product{
 	background:#FFF;
 }
+.index-product img{
+	width:100px!important;
+	height:100px!important;
+}
 .index-news{
 	background:#DDD;
 }
