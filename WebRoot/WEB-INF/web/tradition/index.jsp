@@ -15,6 +15,7 @@
 					<img alt="" src="{{item.imgUrl}}">
 					<div class="bg-white p10">
 						<a ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
+						{{item.brief}}
 					</div>
 				</div>
 			</div>
