@@ -62,6 +62,7 @@ public class Const {
 	public static final String NEWS_INFOR = "INFOR";//新闻类型：新闻资讯
 	public static final String NEWS_PAGE = "PAGE";//新闻类型：网站页面
 	public static final String NEWS_TYPE = "NEWSTYPE";
+	public static final String NEWS_PRODUCT = "PRODUCT";
 	
 	public static final String STATIC_SUBNAV ="SUBNAV";
 	public static final String STATIC_NAV ="NAV";

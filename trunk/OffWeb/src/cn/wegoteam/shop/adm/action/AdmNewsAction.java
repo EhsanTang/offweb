@@ -33,6 +33,10 @@ public class AdmNewsAction extends BaseAction<News> {
 			initAdminList(Const.ADMIN_NEWS, Const.NEWS_PAGE, operators);
 		} else if (getParameter("p_type").equals("INFOR")) {
 			initAdminList(Const.ADMIN_NEWS, Const.NEWS_INFOR, operators);
+		}else if (getParameter("p_type").equals("PRODUCT")) {
+			initAdminList(Const.ADMIN_NEWS, Const.NEWS_PRODUCT, operators);
+		}else{
+			initAdminList(Const.ADMIN_NEWS, Const.ADMIN_NEWS, operators);
 		}
 		writeStringToResponse(newsService.getJsonList(pageBean, DataUtils
 				.getMap("type", getParameter("p_type"), "flag",
