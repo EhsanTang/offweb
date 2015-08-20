@@ -148,48 +148,39 @@ public class News extends BasePo implements java.io.Serializable {
 	}
 	@Transient
 	public String getTitle(){
-		String result = cntitle;
 		if(GetReqRes.getRequest().getServerName().contains("en.")){
-			result = MyString.isEmpty(entitle)?cntitle:entitle;
+			return MyString.isEmpty(entitle)?cntitle:entitle;
 		}else{
 			String lang=GetReqRes.getRequest().getParameter("lang");
 			if(lang!=null&&lang.equals("en")){
-				result = MyString.isEmpty(entitle)?cntitle:entitle;
+				return MyString.isEmpty(entitle)?cntitle:entitle;
 			}
 		}
-		cntitle = "";
-		entitle = "";
-		return result;
+		return cntitle;
 	}
 	@Transient
 	public String getContent(){
-		String result = cncontent;
 		if(GetReqRes.getRequest().getServerName().contains("en.")){
-			result = MyString.isEmpty(encontent)?cncontent:encontent;
+			return MyString.isEmpty(encontent)?cncontent:encontent;
 		}else{
 			String lang=GetReqRes.getRequest().getParameter("lang");
 			if(lang!=null&&lang.equals("en")){
-				result = MyString.isEmpty(encontent)?cncontent:encontent;
+				return MyString.isEmpty(encontent)?cncontent:encontent;
 			}
 		}
-		cncontent = "";
-		encontent = "";
-		return result;
+		return cncontent;
 	}
 	@Transient
 	public String getBrief(){
-		String result = cnbrief;
 		if(GetReqRes.getRequest().getServerName().contains("en.")){
-			result = MyString.isEmpty(enbrief)?cnbrief:enbrief;
+			return MyString.isEmpty(enbrief)?cnbrief:enbrief;
 		}else{
 			String lang=GetReqRes.getRequest().getParameter("lang");
 			if(lang!=null&&lang.equals("en")){
-				result = MyString.isEmpty(enbrief)?cnbrief:enbrief;
+				return MyString.isEmpty(enbrief)?cnbrief:enbrief;
 			}
 		}
-		cnbrief = "";
-		enbrief = "";
-		return result;
+		return cnbrief;
 	}
 
 }

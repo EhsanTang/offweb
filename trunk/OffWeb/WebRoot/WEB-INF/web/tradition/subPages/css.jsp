@@ -33,6 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	.a a:hover{color:${HOVER_COLOR}!important}
 	.border-left-color{border-left-color:${MATCH_COLOR}}
 	.border-top-color{border-top-color:${MATCH_COLOR}}
+	/*menu background color*/
+	.navbar-nav a:hover{
+ 		background:${MATCH_COLOR}!important;
+ 		color:#fff!important;
+	}
 </style>
 <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
