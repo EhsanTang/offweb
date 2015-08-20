@@ -56,7 +56,7 @@ public class ContextListener implements ServletContextListener {
 		Cache.setSetting(sets, context.getServletContext());
 				
 		List<News> news = newsService.findByHql(
-						"from News where type=:type", DataUtils.getMap("type","PAGE"));
+						"from News where tag!=null", null);
 		Cache.setNews(news);
 		PageBean page = new PageBean();
 		page.setSize(6);

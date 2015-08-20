@@ -51,12 +51,12 @@
 		<tr>
 			<td>名称:</td>
 			<td><input class="form-control" name="name" type="text"
-				value="${model.name}" /></td>
+				value="<s:property value="model.name" escape="true"/>" /></td>
 		</tr>
 		<tr>
 			<td>英文名称:</td>
 			<td><input class="form-control" name="enName" type="text"
-				value="${model.enName}" /></td>
+				value="<s:property value="model.enName" escape="true"/>" /></td>
 		</tr>
 		<s:if test="model.pcode.equals('ROLE')">
 			<tr>

@@ -6,7 +6,7 @@
 	<%@include file="subPages/nav.jsp"%>
 	<input id="url" type="hidden" value="newsList">
 	<div class="container mb30" ng-app="app" class="p10"
-		ng-controller="webController">
+		ng-controller="newsController">
 		<div class="row shadow bg-white mt10 p15 pt0 min-h400">
 			<div class="news-list col-sm-12 m0"
 				ng-repeat="item in list.Rows track by $index">
@@ -23,7 +23,6 @@
 			</div>
 
 			<!-- 分页url -->
-			<input id="href" type="hidden" value="go" />
 			<div class="mb20 cb"></div>
 			<%@include file="../../admin/page.html"%>
 		</div>

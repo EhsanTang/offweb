@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<div class="top-bar second-bg a">
+<div class="top-bar second-bg a ah">
 	<div class="container">
 		<div class="fl hidden-xs">
 					<i class="iconfont">&#xe619;</i>&nbsp;&nbsp;

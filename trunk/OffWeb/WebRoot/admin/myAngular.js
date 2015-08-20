@@ -35,10 +35,16 @@ var app = angular.module('app', []);
     	 }else{
     		 $scope.list = eval("("+result+")");
     	 }
-    	 // $("#lookUp").hide();
-    	 /**
-    	  * 分页
-    	  */
+     });
+     app.controller('newsController', function($scope) {
+    	 var params = "&p=list" + getParams("p_type");
+    	 var url = "go";
+    	 var result = callAjaxByName("iUrl="+url+"|iPost=true|isHowMethod=return|iAsync=false|iParams="+params);
+    	 if(result.indexOf('[ERROR]') >= 0){
+    		 $scope.error = result.replace('[ERROR]', '');
+    	 }else{
+    		 $scope.list = eval("("+result+")");
+    	 }
     	 $scope.pageTurn = function (page, key, value) {
     		 pageTurn(page, key, value);
     	 }

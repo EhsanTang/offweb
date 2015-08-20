@@ -22,6 +22,9 @@ html,body{
   	box-shadow:none!important;
   	padding: 8px 12px;
 }
+#editForm table .input-group-addon{
+	border:1px solid #EEE;
+}
 .modal-body .container{
 	max-width:100%;
 }

@@ -68,7 +68,7 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 		this.value = value;
 	}
 
-	@Column(name = "name", length = 50)
+	@Column(name = "name", length = 200)
 	public String getName() {
 		return this.name;
 	}
@@ -76,7 +76,7 @@ public class Staticdata  extends BasePo implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column(name = "enName", length = 100)
+	@Column(name = "enName", length = 500)
 	public String getEnName() {
 		return this.enName;
 	}
