@@ -46,9 +46,8 @@ public class UserAction extends BaseAction<User> {
 		request.setAttribute(Const.REMBER_PWD,GetReqRes.getCookie(Const.REMBER_PWD));
 		return SUCCESS;
 	}
-
 	@Action(value = "login", results = {
-			@Result(name = SUCCESS, type = "chain", location = "manageIndex"),
+			@Result(name = SUCCESS, type = "redirect", location = "adminJsp?jspName=index"),
 			@Result(name = ERROR, location = WEB + "login.jsp") })
 	public String login() {
 		try {

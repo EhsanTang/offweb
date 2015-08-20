@@ -1,4 +1,4 @@
-package cn.wegoteam.shop.adm.action;
+package cn.wegoteam.shop.adm2.action;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
