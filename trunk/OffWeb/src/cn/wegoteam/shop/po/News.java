@@ -20,6 +20,8 @@ public class News extends BasePo implements java.io.Serializable {
 	private String entitle;//英文名称
 	private String cncontent;// 新闻内容
 	private String encontent;//英文内容
+	private String cnbrief;//中文简介
+	private String enbrief;//英文简介
 	private String date;// 新闻添加时间
 	private Integer click;// 新闻点击量
 	private String imgUrl;// 新闻图片
@@ -54,6 +56,25 @@ public class News extends BasePo implements java.io.Serializable {
 	public void setEntitle(String entitle) {
 		this.entitle = entitle;
 	}
+	
+	@Column(name = "enbrief", length = 500)
+	public String getEnbrief() {
+		return this.enbrief;
+	}
+
+	public void setEnbrief(String enbrief) {
+		this.enbrief = enbrief;
+	}
+	
+	@Column(name = "cnbrief", length = 200)
+	public String getCnbrief() {
+		return this.cnbrief;
+	}
+
+	public void setCnbrief(String cnbrief) {
+		this.cnbrief = cnbrief;
+	}
+	
 	@Column(name = "tag",length = 10)
 	public String getTag() {
 		return this.tag;
@@ -127,27 +148,48 @@ public class News extends BasePo implements java.io.Serializable {
 	}
 	@Transient
 	public String getTitle(){
+		String result = cntitle;
 		if(GetReqRes.getRequest().getServerName().contains("en.")){
-			return MyString.isEmpty(entitle)?cntitle:entitle;
+			result = MyString.isEmpty(entitle)?cntitle:entitle;
 		}else{
 			String lang=GetReqRes.getRequest().getParameter("lang");
 			if(lang!=null&&lang.equals("en")){
-				return MyString.isEmpty(entitle)?cntitle:entitle;
+				result = MyString.isEmpty(entitle)?cntitle:entitle;
 			}
 		}
-		return cntitle;
+		cntitle = "";
+		entitle = "";
+		return result;
 	}
 	@Transient
 	public String getContent(){
+		String result = cncontent;
 		if(GetReqRes.getRequest().getServerName().contains("en.")){
-			return MyString.isEmpty(encontent)?cncontent:encontent;
+			result = MyString.isEmpty(encontent)?cncontent:encontent;
 		}else{
 			String lang=GetReqRes.getRequest().getParameter("lang");
 			if(lang!=null&&lang.equals("en")){
-				return MyString.isEmpty(encontent)?cncontent:encontent;
+				result = MyString.isEmpty(encontent)?cncontent:encontent;
 			}
 		}
-		return cncontent;
+		cncontent = "";
+		encontent = "";
+		return result;
+	}
+	@Transient
+	public String getBrief(){
+		String result = cnbrief;
+		if(GetReqRes.getRequest().getServerName().contains("en.")){
+			result = MyString.isEmpty(enbrief)?cnbrief:enbrief;
+		}else{
+			String lang=GetReqRes.getRequest().getParameter("lang");
+			if(lang!=null&&lang.equals("en")){
+				result = MyString.isEmpty(enbrief)?cnbrief:enbrief;
+			}
+		}
+		cnbrief = "";
+		enbrief = "";
+		return result;
 	}
 
 }
