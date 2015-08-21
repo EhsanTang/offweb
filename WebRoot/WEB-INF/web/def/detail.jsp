@@ -4,7 +4,7 @@
 <body class="small-width">
 	<%@include file="subPages/top.jsp"%>
 	<%@include file="subPages/nav.jsp"%>
-	 <input id="url" type="hidden" value="newsDetail">
+	 <input id="url" type="hidden" value="newsInfor">
 	<div class="container mb30" ng-app="app" class="p10" ng-controller="webController">
 			<div class="news-detail row shadow bg-white mt10 p50 lh26 min-h400">
 				<div class="tc" ng-if="list.Model.type=='INFOR'">

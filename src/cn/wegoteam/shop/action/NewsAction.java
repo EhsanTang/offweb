@@ -5,8 +5,10 @@ import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.inter.CommentServiceInter;
 import cn.wegoteam.shop.inter.NewsServiceInter;
@@ -33,9 +35,12 @@ public class NewsAction extends BaseAction<News> {
 		writeStringToResponse(newsService.getJsonList(pageBean, map, "flag desc", request, paramMap, 
 				new String[]{"cntitle","entitle","cncontent","encontent","cnbrief","enbrief","addTime","flagName"}));
 	}
-
-	@Action(value = "newsDetail")
-	public void newsDetail() {
+	@Action(value = "newsDetail", results = { @Result(name = "success", type = "redirect", location = "go?p=detail&p_tag=${p_tag}") })
+	public String newsDetail() {
+			return SUCCESS;
+	}
+	@Action(value = "newsInfor")
+	public void newsInfor() {
 		if (model.getId() == null) {
 			model = Cache.getNews(getParameter("p_tag", ""));
 			if (model == null) {
@@ -75,5 +80,7 @@ public class NewsAction extends BaseAction<News> {
 	public void setCommentLists(List<Comment> commentLists) {
 		this.commentLists = commentLists;
 	}
-
+	public String getP_tag(){
+		return getParameter("p_tag", "");
+	}
 }

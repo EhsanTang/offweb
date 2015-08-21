@@ -101,19 +101,19 @@ public class AdmIndexAction extends BaseAction<User> {
 				picks.add(pick);
 			}
 		}
-		else if (code.equals("MENU")) {
+		else if (code.equals("MENU_PAGE")) {
 			List<News> newsList = Cache.getNewsList();
 			for (News n : newsList) {
 				pick = new Pick();
 				pick.setId(n.getTag());
-				pick.setValue("go?p=detail&p_tag="+n.getTag());
+				pick.setValue("go?p="+getParameter("p_value", "detail")+"&p_tag="+n.getTag());
 				pick.setName("页面："+n.getTag() + "-" + n.getCntitle());
 				picks.add(pick);
 			}
 			List<Staticdata> staticdataList = StaticDataCache.getStaticdatas(Const.NEWS_TYPE, Const.NO);
 			for(Staticdata s: staticdataList){
 				pick = new Pick();
-				pick.setId(s.getCode());
+				pick.setId("list_"+s.getCode());
 				pick.setValue("go?p=list&p_type="+s.getCode());
 				pick.setName("列表："+s.getCode() + "-" + s.getName());
 				picks.add(pick);

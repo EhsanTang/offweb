@@ -126,7 +126,7 @@
 			<div class="col-sm-5 col-xs-12 p0">
 				津<span>ICP</span>备<span> 15031289 </span>号&nbsp;&nbsp;
 				 站点管理：&nbsp;&nbsp;<a href="http://mail.ytworld.cn/" target="_blank">YTWORLD邮箱</a>
-				  | <a href="manageIndex">登录</a>
+				  | <a href="adminJsp?jspName=index">登录</a>
 			</div>
 			<div class="col-sm-3 col-xs-12 p0 icon">
 				<a href="#"

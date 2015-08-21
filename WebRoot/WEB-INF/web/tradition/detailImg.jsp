@@ -4,8 +4,8 @@
 <body class="small-width"  ng-app="app" ng-controller="webController">
 	<%@include file="subPages/top.jsp"%>
 	<%@include file="subPages/nav.jsp"%>
-	 <input id="url" type="hidden" value="newsDetail">
-	 <img src="{{list.Model.url}}" class="w mah400">
+	 <input id="url" type="hidden" value="newsInfor">
+	 <img ng-src="{{list.Model.url}}" class="w mah400">
 	 <div class="container mb30">
 			<div class="news-detail row lh26 min-h400">
 				<div class="roman tc f30 match-color m30">{{list.Model.title}}</div>
