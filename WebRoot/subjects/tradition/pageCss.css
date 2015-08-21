@@ -17,6 +17,9 @@
 	width:100px!important;
 	height:100px!important;
 }
+.index-product .product{
+	height:230px;
+}
 .index-news{
 	background:#DDD;
 }
@@ -48,6 +51,9 @@
 	}
 	.index-news .img{
 		width:250px!important;
+		height:auto!important;
+	}
+	.index-product .product{
 		height:auto!important;
 	}
 }
