@@ -1,23 +1,12 @@
 package cn.wegoteam.shop.po;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
 import cn.crap.base.BasePo;
 import cn.wegoteam.shop.enu.SexType;
 import cn.wegoteam.shop.enu.UserType;
@@ -26,7 +15,7 @@ import cn.wegoteam.shop.enu.UserType;
  * User entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "user", catalog = "offweb")
+@Table(name = "user")
 public class User  extends BasePo implements java.io.Serializable {
 
 	// Fields

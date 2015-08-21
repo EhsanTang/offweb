@@ -2,11 +2,6 @@ package cn.wegoteam.shop.po;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import cn.crap.base.BasePo;
@@ -15,7 +10,7 @@ import cn.crap.base.BasePo;
  * Setting entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "setting", catalog = "offweb")
+@Table(name = "setting")
 public class Setting extends BasePo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 2706209907123981665L;

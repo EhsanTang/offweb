@@ -1,28 +1,18 @@
 package cn.wegoteam.shop.po;
 
-import java.util.Map;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Transient;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
 import javax.persistence.Table;
-
 import cn.crap.base.BasePo;
 import cn.crap.utils.GetReqRes;
 import cn.crap.utils.MyString;
-import cn.wegoteam.shop.cache.Cache;
-import cn.wegoteam.shop.util.Const;
 
 /**
  * Staticdata entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "staticdata", catalog = "offweb")
+@Table(name = "staticdata")
 public class Staticdata  extends BasePo implements java.io.Serializable {
 
 	// Fields

@@ -12,7 +12,7 @@ import cn.crap.utils.MyString;
  * News entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "news", catalog = "offweb")
+@Table(name = "news")
 public class News extends BasePo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 7226448984101362495L;

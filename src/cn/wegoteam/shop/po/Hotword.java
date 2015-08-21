@@ -2,11 +2,6 @@ package cn.wegoteam.shop.po;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -16,7 +11,7 @@ import cn.crap.base.BasePo;
  * Hotword entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "hotword", catalog = "offweb", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "hotword", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class Hotword  extends BasePo implements java.io.Serializable {
 
 	private static final long serialVersionUID = -6007886292885210079L;

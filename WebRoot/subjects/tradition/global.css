@@ -1,6 +1,5 @@
 body{
 	font: 12px/1.5 arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
-	background:#ebebeb;
 }
 a{text-decoration:none;color:#333;cursor:pointer;}
 a:hover{text-decoration:none;color:#999;}
@@ -102,21 +101,6 @@ a:hover{text-decoration:none;color:#999;}
 
 }
 
-
-
-
-
-
-
-
-
-
-
-/****************less变量*****************/
-/****************End：less变量*****************/
-body {
-  background: #FAFAFA;
-}
 .row {
   padding: 0px;
   margin: 0px;

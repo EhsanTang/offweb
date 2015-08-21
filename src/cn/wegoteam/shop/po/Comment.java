@@ -9,12 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Transient;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -29,9 +24,13 @@ import cn.crap.utils.DateFormartUtil;
  * Comment entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "comment", catalog = "offweb")
+@Table(name = "comment")
 public class Comment extends BasePo implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5057756230248234766L;
 	// Fields
 	private Comment comment;
 	private User user;
