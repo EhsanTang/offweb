@@ -1,11 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@include file="subPages/css.jsp"%>
-<body class="small-width">
+<body class="small-width"  ng-app="app" ng-controller="webController">
 	<%@include file="subPages/top.jsp"%>
 	<%@include file="subPages/nav.jsp"%>
 	 <input id="url" type="hidden" value="newsDetail">
-	<div class="container mb30 p10" ng-app="app" ng-controller="webController">
+	 <img src="${list.Model.url}" class="w">
+	 <div class="container mb30 p10">
 			<div class="news-detail row shadow bg-white mt10 p50 lh26 min-h400">
 				<div class="tc" ng-if="list.Model.type=='INFOR'">
 					<h4 class="pb10 roman">{{list.Model.title}}</h4>

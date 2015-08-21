@@ -11,7 +11,7 @@
 			<div class="news-list col-sm-12 m0"
 				ng-repeat="item in list.Rows track by $index">
 				<div class="col-xs-12 col-sm-8">
-					<a ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
+					<a ng-href="go?p={{item.style}}&id={{item.id}}">{{item.title}}</a>
 				</div>
 				<div class="col-xs-12 col-sm-4 tr news-date f12 fm">
 					<s:property value="@Static@getStatic('L_CLICK').lang" />

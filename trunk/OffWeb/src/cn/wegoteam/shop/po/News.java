@@ -24,11 +24,12 @@ public class News extends BasePo implements java.io.Serializable {
 	private String enbrief;//英文简介
 	private String date;// 新闻添加时间
 	private Integer click;// 新闻点击量
-	private String imgUrl;// 新闻图片
+	private String url;// 新闻图片
 	private String type;// 新闻类型
 	private boolean canComment;//是否可以评论
 	//联系我们等
 	private String tag;
+	private String style;
 	//是否显示广告
 	// Constructors
 
@@ -119,13 +120,13 @@ public class News extends BasePo implements java.io.Serializable {
 		this.click = click;
 	}
 
-	@Column(name = "imgUrl", length = 200)
-	public String getImgUrl() {
-		return this.imgUrl;
+	@Column(name = "url", length = 200)
+	public String getUrl() {
+		return this.url;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Column(name = "type", nullable = false, length = 15)
@@ -136,7 +137,13 @@ public class News extends BasePo implements java.io.Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+	@Column(name = "style", nullable = false, length = 15)
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
 	@Column(name = "canComment")
 	@org.hibernate.annotations.Type(type="yes_no")
 	public boolean isCanComment() {
