@@ -68,7 +68,7 @@
 			<div style="padding:5px;" id="d_${id}" onclick="pickCheck('${id}');"
 				onmouseout="pickMouseOut('d_${id}');"
 				onmouseover="pickMouseOver('d_${id}');">
-				<input id="${id}" type="radio" <s:if test="def.equals(id)">checked</s:if> name="cid" value="${value}">&nbsp;&nbsp;${name}
+				<input id="${id}" type="radio" <s:if test="def.equals(value)">checked</s:if> name="cid" value="${value}">&nbsp;&nbsp;${name}
 			</div>
 		</s:iterator>
 	</s:if>

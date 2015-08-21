@@ -96,7 +96,7 @@ public class AdmIndexAction extends BaseAction<User> {
 				}
 				pick = new Pick();
 				pick.setId(o.getCode());
-				pick.setValue(o.getCode());
+				pick.setValue(getParameter("p_target", "").equals("value")?o.getValue():o.getCode());
 				pick.setName(o.getPcode() + "-" + o.getName());
 				picks.add(pick);
 			}
