@@ -33,9 +33,9 @@ public class AdmNewsAction extends BaseAction<News> {
 			initAdminList(Const.ADMIN_NEWS, Const.NEWS_PAGE, operators);
 		} else if (getParameter("p_type").equals("INFOR")) {
 			initAdminList(Const.ADMIN_NEWS, Const.NEWS_INFOR, operators);
-		}else if (getParameter("p_type").equals("PRODUCT")) {
+		} else if (getParameter("p_type").equals("PRODUCT")) {
 			initAdminList(Const.ADMIN_NEWS, Const.NEWS_PRODUCT, operators);
-		}else{
+		} else {
 			initAdminList(Const.ADMIN_NEWS, Const.ADMIN_NEWS, operators);
 		}
 		writeStringToResponse(newsService.getJsonList(pageBean, DataUtils
@@ -56,7 +56,7 @@ public class AdmNewsAction extends BaseAction<News> {
 	// 添加
 	@Action(value = "admAddNews")
 	public void addNews() {
-		if(MyString.isEmpty(model.getTag()))
+		if (MyString.isEmpty(model.getTag()))
 			model.setTag(null);
 		newsService.saveOrUpdate(model);
 		writeStringToResponse("[OK]操作成功！");

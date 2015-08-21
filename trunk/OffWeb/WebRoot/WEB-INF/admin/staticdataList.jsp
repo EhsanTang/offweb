@@ -10,8 +10,8 @@
 				<th class="tc">类型</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'pcode')">PCode</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'code')">Code</th>
-				<th class="tc">名称</th>
-				<th class="tc">英文名称</th>
+				<th class="tc w200">名称</th>
+				<th class="tc w200">英文名称</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'value')">值</th>
 				<th class="tc">排序</th>
 				<th class="cursor tc" onclick="pageTurn(1, 'sortname', 'addTime')">添加时间</th>
