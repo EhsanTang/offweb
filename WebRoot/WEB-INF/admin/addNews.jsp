@@ -85,8 +85,8 @@
 		<tr>
 			<td colspan="2">
 				<div class="input-group w">
-	      			 <div class="input-group-addon">新闻图片</div>
-	      			<input name="imgUrl" type="text" class="form-control" value="${model.imgUrl}"/>
+	      			 <div class="input-group-addon">媒体链接</div>
+	      			<input name="url" type="text" class="form-control" value="${model.url}"/>
 				</div>
 	    	</td>
 		</tr>
