@@ -14,7 +14,7 @@
 			<div id="navbar" class="navbar-collapse collapse p0">
 				<ul class="nav navbar-nav roman">
 					<s:iterator
-						value="@cn.wegoteam.shop.cache.StaticDataCache@getStaticdatas('MENU','MENU')">
+						value="@Static@getStaticdatas('MENU','MENU')">
 						<li><a class="f16 pl30 pr30 transition" href="${link}">${lang}</a></li>
 					</s:iterator>
 					<!--  <li class="active"><a href="#">Home</a></li>-->

@@ -31,9 +31,12 @@
 		<s:if test="model.pcode.equals('MENU')">
 			<tr>
 				<td>链接页面:</td>
-				<td><input class="form-control" name="link" id="link"
-					value="${model.link}" type="text"
-					onclick="loadPick(event,360,240,'true','link','MENU','','${model.link}','');" />
+				<td>
+					<input class="form-control" name="link" id="link" value="${model.link}" type="text"/>
+					 <s:iterator value="@Static@getStaticdatas(#application.SUBJECT,'NO')">
+					 	<input type="button" class="btn btn-primary btn-xs mt10" value="${name}" onclick="loadPick(event,360,240,'true','link','MENU_PAGE','','${model.link}','&p_value=${value}');"/>
+					</s:iterator>
+					 
 				</td>
 			</tr>
 		</s:if>

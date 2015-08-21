@@ -4,10 +4,10 @@
 <body class="small-width">
 	<%@include file="subPages/top.jsp"%>
 	<%@include file="subPages/nav.jsp"%>
-	 <input id="url" type="hidden" value="newsDetail">
-	<div class="container mb30 p10" ng-app="app" ng-controller="webController">
+	 <input id="url" type="hidden" value="newsInfor">
+	<div class="container mb30 p10 pt0" ng-app="app" ng-controller="webController">
 			<div class="news-detail row shadow bg-white p50 lh26 min-h400">
-				<div class="news-detail-title mb20 roman border-left-color" ng-if="list.Model.type!='INFOR'">{{list.Model.title}}</div>
+				<div class="news-detail-title mb20 roman border-left-color">{{list.Model.title}}</div>
 				<span ng-bind-html="list.Model.content|trustHtml"></span>
 			</div>
 	</div>

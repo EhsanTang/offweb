@@ -17,17 +17,17 @@
 			</div>
 			<div class="row mt0 ah">
 					<div class="col-md-4 p30 pt10 tc"  ng-repeat="item in list.Rows track by $index">
-						<a ng-href="go?p=detail&p_tag={{item.tag}}">
-							<img class="img-circle" src="{{item.url}}">
+						<a ng-href="go?p={{item.style}}&p_tag={{item.tag}}">
+							<img class="img-circle" ng-src="{{item.url}}">
 						</a>
 						<div class="p30 pt20 C999 f12 brief tc lh26 product">
-							<a class="f16 C555" ng-href="go?p=detail&p_tag={{item.tag}}">{{item.title}}</a>
+							<a class="f16 C555" ng-href="go?p={{item.style}}&p_tag={{item.tag}}">{{item.title}}</a>
 							<br/>
 							{{item.brief}}
 							<br/>
 						</div>
 						<div class="tc">
-							<a class="btn btn-default btn-xs C999 f12" ng-href="go?p=detail&p_tag={{item.tag}}">MORE <span class="glyphicon glyphicon-arrow-right"></span></a>
+							<a class="btn btn-default btn-xs C999 f12" ng-href="go?p={{item.style}}&p_tag={{item.tag}}">MORE <span class="glyphicon glyphicon-arrow-right"></span></a>
 						</div>
 					</div>
 			</div>
@@ -41,13 +41,13 @@
 			</div>
 			<div class="row mt0 ah news">
 				<div class="col-md-4 p30 pt10"  ng-repeat="item in list.Rows track by $index">
-					<a ng-href="go?p=detail&id={{item.id}}"><img alt="" src="{{item.url}}"></a>
+					<a ng-href="go?p={{item.style}}&id={{item.id}}"><img alt="" ng-src="{{item.url}}"></a>
 					<div class="bg-white p30 pt20 C999 f14 brief">
-						<a class="f18 C555" ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
+						<a class="f18 C555" ng-href="go?p={{item.style}}&id={{item.id}}">{{item.title}}</a>
 						<br/>
 						{{item.brief}}
 						<br/>
-						<a class="match-color" ng-href="go?p=detail&id={{item.id}}">READ MORE</a>
+						<a class="match-color" ng-href="go?p={{item.style}}&id={{item.id}}">READ MORE</a>
 						<div class="mt10 f12 CDDD">
 							<i class="iconfont f30 C999">&#xe64a;</i>&nbsp;&nbsp;{{item.date}}
 						</div>
