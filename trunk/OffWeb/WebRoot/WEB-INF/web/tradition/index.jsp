@@ -8,7 +8,7 @@
 			<%@include file="subPages/slide.jsp"%>
 	</div>
 	<div class="w index-product">
-		<div class="container" ng-controller="productController">
+		<div class="container pb30" ng-controller="productController">
 			<div class="tc match-color f30 lh26 p30">
 				<s:property value="@Static@getStatic('L_BRIEF').lang"/>
 				<div class="f14 C555 tc mt10">
@@ -17,13 +17,17 @@
 			</div>
 			<div class="row mt0 ah">
 					<div class="col-md-4 p30 pt10 tc"  ng-repeat="item in list.Rows track by $index">
-						<img class="img-circle" src="{{item.imgUrl}}">
-						<div class="p30 pt20 C999 f14 brief tc">
-							<a class="f18 C555" ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
+						<a ng-href="go?p=detail&p_tag={{item.tag}}">
+							<img class="img-circle" src="{{item.imgUrl}}">
+						</a>
+						<div class="p30 pt20 C999 f12 brief tc lh26 product">
+							<a class="f16 C555" ng-href="go?p=detail&p_tag={{item.tag}}">{{item.title}}</a>
 							<br/>
 							{{item.brief}}
 							<br/>
-							<a class="btn btn-default C999" ng-href="go?p=detail&id={{item.id}}">MORE <span class="glyphicon glyphicon-arrow-right"></span></a>
+						</div>
+						<div class="tc">
+							<a class="btn btn-default btn-xs C999 f12" ng-href="go?p=detail&p_tag={{item.tag}}">MORE <span class="glyphicon glyphicon-arrow-right"></span></a>
 						</div>
 					</div>
 			</div>
@@ -37,7 +41,7 @@
 			</div>
 			<div class="row mt0 ah news">
 				<div class="col-md-4 p30 pt10"  ng-repeat="item in list.Rows track by $index">
-					<img alt="" src="{{item.imgUrl}}">
+					<a ng-href="go?p=detail&id={{item.id}}"><img alt="" src="{{item.imgUrl}}"></a>
 					<div class="bg-white p30 pt20 C999 f14 brief">
 						<a class="f18 C555" ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
 						<br/>
