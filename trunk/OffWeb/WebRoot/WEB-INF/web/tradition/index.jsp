@@ -18,7 +18,7 @@
 			<div class="row mt0 ah">
 					<div class="col-md-4 p30 pt10 tc"  ng-repeat="item in list.Rows track by $index">
 						<a ng-href="go?p=detail&p_tag={{item.tag}}">
-							<img class="img-circle" src="{{item.imgUrl}}">
+							<img class="img-circle" src="{{item.url}}">
 						</a>
 						<div class="p30 pt20 C999 f12 brief tc lh26 product">
 							<a class="f16 C555" ng-href="go?p=detail&p_tag={{item.tag}}">{{item.title}}</a>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="row mt0 ah news">
 				<div class="col-md-4 p30 pt10"  ng-repeat="item in list.Rows track by $index">
-					<a ng-href="go?p=detail&id={{item.id}}"><img alt="" src="{{item.imgUrl}}"></a>
+					<a ng-href="go?p=detail&id={{item.id}}"><img alt="" src="{{item.url}}"></a>
 					<div class="bg-white p30 pt20 C999 f14 brief">
 						<a class="f18 C555" ng-href="go?p=detail&id={{item.id}}">{{item.title}}</a>
 						<br/>
