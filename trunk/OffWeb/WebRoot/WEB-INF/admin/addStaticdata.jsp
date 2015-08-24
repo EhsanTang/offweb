@@ -33,7 +33,7 @@
 				<td>链接页面:</td>
 				<td>
 					<input class="form-control" name="link" id="link" value="${model.link}" type="text"/>
-					 <s:iterator value="@Static@getStaticdatas(#application.SUBJECT,'NO')">
+					 <s:iterator value="@Static@getStaticdatas(#application.SUBJECT,'DETAIL')">
 					 	<input type="button" class="btn btn-primary btn-xs mt10" value="${name}" onclick="loadPick(event,360,240,'true','link','MENU_PAGE','','${model.link}','&p_value=${value}');"/>
 					</s:iterator>
 					 
