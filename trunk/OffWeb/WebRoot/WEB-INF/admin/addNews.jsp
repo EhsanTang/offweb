@@ -37,7 +37,7 @@
 					<div class="input-group-addon">展示类型</div>
 					<input id="style" class="form-control" name="style" type="text"
 						value="${model.style}"
-						onclick="loadPick(event,360,240,'true','style','STATICDATA','','${model.style}','&p_code=${SUBJECT}&p_type=NO&p_target=value');">
+						onclick="loadPick(event,360,240,'true','style','STATICDATA','','${model.style}','&p_code=${SUBJECT}&p_type=DETAIL&p_target=value');">
 				</div>
 			</td>
 		</tr>
