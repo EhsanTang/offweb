@@ -1,7 +1,6 @@
 package cn.wegoteam.shop.action;
 
 import org.apache.commons.lang.StringUtils;
-
 import cn.wegoteam.shop.cache.Cache;
 import cn.wegoteam.shop.cache.StaticDataCache;
 import cn.wegoteam.shop.po.User;
@@ -13,6 +12,15 @@ public abstract class BaseAction<T> extends cn.crap.base.BaseAction<T>{
 	private String p;
 	public String getP() {
 		String paths[] = p.split("\\.");
+		String page = paths[paths.length-1];
+		//防止主题切换导致页面不可用
+		if(page.startsWith("detail")){
+			String subject = Cache.getSetting(Const.SUBJECT).getValue();
+			String pages = StaticDataCache.getStaticdata(subject).getValue();
+			if(pages.indexOf(","+page+",")<0){
+				paths[paths.length-1] = "detail";
+			}
+		}
 		return StringUtils.join(paths,"\\");
 	}
 	public String getSubject(){
