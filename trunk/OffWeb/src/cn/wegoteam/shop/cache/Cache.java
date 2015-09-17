@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletContext;
-
-import cn.crap.utils.DataUtils;
 import cn.crap.utils.GetReqRes;
 import cn.crap.utils.PageBean;
 import cn.wegoteam.shop.inter.HotwordServiceInter;
