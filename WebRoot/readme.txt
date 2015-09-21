@@ -1,8 +1,5 @@
 1.
-	  不需要拦截器的Action包：default
-	  需添加用户拦截器的Action包：user
-	  需要添加拦截器的Action需在Action前添加inter，如 UserInterAction
-	  管理员Action包：manage
+	数据库：WebRoot下
 	  
 2.	 前台传递的参数且不是model的属性则一"p_"开头
 
