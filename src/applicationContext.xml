@@ -18,9 +18,9 @@
 	<context:component-scan base-package="cn.wegoteam.shop.dao"/>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://60.28.29.22:3306/offweb"></property>
-		<property name="username" value="offweb"></property>
-		<property name="password" value="Yt-offweb#"></property>
+		<property name="url" value="jdbc:mysql://:3306/offweb"></property>
+		<property name="username" value=""></property>
+		<property name="password" value=""></property>
 	</bean>
 	
 	<bean id="sessionFactory"
