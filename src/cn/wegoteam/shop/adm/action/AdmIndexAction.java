@@ -106,7 +106,7 @@ public class AdmIndexAction extends BaseAction<User> {
 			for (News n : newsList) {
 				pick = new Pick();
 				pick.setId(n.getTag());
-				pick.setValue("go?p="+getParameter("p_value", "detail")+"&p_tag="+n.getTag());
+				pick.setValue("go?p="+getParameter("p_value", "detail")+"&p_tag="+n.getTag()+"&currPage=");
 				pick.setName("页面："+n.getTag() + "-" + n.getCntitle());
 				picks.add(pick);
 			}
@@ -114,7 +114,7 @@ public class AdmIndexAction extends BaseAction<User> {
 			for(Staticdata s: staticdataList){
 				pick = new Pick();
 				pick.setId("list_"+s.getCode());
-				pick.setValue("go?p=list&p_type="+s.getCode());
+				pick.setValue("go?p=list&p_type="+s.getCode()+"&currPage=");
 				pick.setName("列表："+s.getCode() + "-" + s.getName());
 				picks.add(pick);
 			}

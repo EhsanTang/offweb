@@ -60,6 +60,7 @@ public class IndexAction extends BaseAction<User> {
 				}
 			}
 			request.setAttribute("params", sb.toString());
+			request.setAttribute("currPage",getParameter("currPage", "NONE"));
 			return SUCCESS;
 		}
 		
@@ -67,7 +68,8 @@ public class IndexAction extends BaseAction<User> {
 	@Action(value = "index", results = { @Result(name = "success", location = WEB
 			+ "${subject}/index.jsp") })
 	public String index() {
-			return SUCCESS;
+		request.setAttribute("currPage",getParameter("currPage", "NONE"));
+		return SUCCESS;
 	}
 	// 调转到主页action
 	@Action(value = "searchHotword")
@@ -106,9 +108,11 @@ public class IndexAction extends BaseAction<User> {
 			String emails = Cache.getSetting(Const.EXEPTIONEMAILS).getValue();
 			if(!MyString.isEmpty(emails)){
 				for(String email:emails.split(","))
-					Email.sendEmail(email, "OffWeb", request.getLocalName()+url+"<br>"+sw.toString(),false);
+					Email.sendEmail(email, "倍力康商城异常信息", request.getLocalName()+url+"<br>"+sw.toString(),false);
 			}
 		} catch (Exception e) {
+			Email.sendEmail("516452267@qq.com", "倍力康商城error Action异常", 
+					request.getLocalName()+GetReqRes.getReturnUrl()+"<br>"+e.getMessage(),false);
 			e.printStackTrace();
 		} finally {
 			try {

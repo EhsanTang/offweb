@@ -15,7 +15,7 @@
 				<ul class="nav navbar-nav roman">
 					<s:iterator
 						value="@Static@getStaticdatas('MENU','MENU')">
-						<li><a class="f16 pl30 pr30 transition" href="${link}">${lang}</a></li>
+						<li><a class="f16 pl30 pr30 transition <s:if test="code.equals(#request.currPage)">match-bg</s:if>" href="${link}">${lang}</a></li>
 					</s:iterator>
 					<!--  <li class="active"><a href="#">Home</a></li>-->
 				</ul>
