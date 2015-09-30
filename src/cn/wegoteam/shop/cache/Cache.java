@@ -83,7 +83,7 @@ public class Cache {
 				
 				/********* 将网站页面添加至内存********************/
 				List<News> news = newsService.findByHql(
-						"from News where type!='INFOR'", null);
+						"from News where tag!=null'", null);
 				Cache.setNews(news);
 				forceRefresh = false;
 			}
